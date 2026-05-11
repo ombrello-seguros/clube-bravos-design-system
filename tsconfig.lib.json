@@ -1,0 +1,30 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": false,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": [
+    "src/index.ts",
+    "src/app/components/**/*.tsx",
+    "src/app/components/**/*.ts",
+    "src/imports/**/*",
+    "src/vite-env.d.ts"
+  ],
+  "exclude": [
+    "src/app/App.tsx",
+    "src/app/components/LogoTest.tsx",
+    "node_modules",
+    "dist"
+  ]
+}

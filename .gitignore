@@ -3,6 +3,9 @@ dist
 dist-ssr
 .vite
 
+# npm auth — NUNCA commitar, contém token
+.npmrc
+
 # Vite env: commit `.env.development|staging|production`,
 # ignore literal `.env` and any `*.local` overrides
 .env

@@ -1,0 +1,57 @@
+image: node:20
+
+# Histórico completo é necessário pro commitlint comparar com a branch de destino
+# do PR e pro release.sh ler commits desde a última tag.
+clone:
+  depth: full
+
+definitions:
+  caches:
+    npm: node_modules
+
+pipelines:
+  # Commitlint em PRs — bloqueia merge se algum commit não for convencional.
+  pull-requests:
+    '**':
+      - step:
+          name: Lint commits (commitlint)
+          caches:
+            - npm
+          script:
+            - export HUSKY=0  # CI não precisa instalar git hooks
+            - npm ci --no-audit --no-fund
+            - git fetch origin "$BITBUCKET_PR_DESTINATION_BRANCH"
+            - npx commitlint --from "origin/$BITBUCKET_PR_DESTINATION_BRANCH" --to HEAD --verbose
+
+  # Push em main — só valida build (não publica). Publish acontece na tag.
+  branches:
+    main:
+      - step:
+          name: Build lib
+          caches:
+            - npm
+          script:
+            - export HUSKY=0
+            - npm ci --no-audit --no-fund
+            - npm run build:lib
+
+  # Tag v*.*.* — builda e publica no registry da Figma.
+  # Requer variável FIGMA_NPM_TOKEN em Repository Settings → Repository Variables (Secured).
+  tags:
+    'v*':
+      - step:
+          name: Publish @clube-bravos/design-system
+          caches:
+            - npm
+          script:
+            - export HUSKY=0
+            - npm ci --no-audit --no-fund
+            - npm run build:lib
+            - |
+              cat > .npmrc <<EOF
+              @clube-bravos:registry=https://registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/
+              @make-kits:registry=https://registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/
+              //registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/:_authToken=${FIGMA_NPM_TOKEN}
+              EOF
+            - npm publish --ignore-scripts
+            - rm -f .npmrc

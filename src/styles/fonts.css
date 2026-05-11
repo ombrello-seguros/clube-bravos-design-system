@@ -1,0 +1,10 @@
+/* Clube Bravos Typography */
+
+/* Importing Poppins as an alternative to Geometos (geometric sans-serif) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Typography scale based on brand guidelines */
+  --font-heading: 'Poppins', Arial, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
