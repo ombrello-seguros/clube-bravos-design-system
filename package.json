@@ -1,6 +1,6 @@
 {
   "name": "@clube-bravos/design-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Design System oficial do Clube Bravos de Benefícios",
   "type": "module",
   "main": "./dist/index.cjs",
