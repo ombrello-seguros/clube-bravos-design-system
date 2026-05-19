@@ -50,6 +50,7 @@ pipelines:
             - |
               cat > .npmrc <<EOF
               @clube-bravos:registry=https://registry.figma.com/npm/f76e40e8-0e2e-4018-a068-b7b7c18bceef/registry/
+              @make-kits:registry=https://registry.figma.com/npm/f76e40e8-0e2e-4018-a068-b7b7c18bceef/registry/
               //registry.figma.com/npm/f76e40e8-0e2e-4018-a068-b7b7c18bceef/registry/:_authToken=${FIGMA_NPM_TOKEN}
               EOF
             - npm publish --ignore-scripts
