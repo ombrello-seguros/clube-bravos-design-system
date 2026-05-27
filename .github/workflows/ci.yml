@@ -1,0 +1,30 @@
+# TODO: port the Bitbucket pipeline.
+# The original bitbucket-pipelines.yml is preserved at
+# docs/migration/bitbucket-pipelines.original.yml — read it and translate
+# the relevant steps into this workflow.
+#
+# Useful mappings:
+#   image: <img>            -> jobs.<id>.container: <img>
+#   pipelines.default       -> on: [push]
+#   pipelines.branches.X    -> on: { push: { branches: [X] } }
+#   pipelines.pull-requests -> on: { pull_request: {} }
+#   $BITBUCKET_BRANCH       -> ${{ github.ref_name }}
+#   $BITBUCKET_COMMIT       -> ${{ github.sha }}
+#   secured variables       -> repo or org secrets (Settings -> Secrets)
+#   services: postgres/redis -> jobs.<id>.services
+#   caches: node/gradle/... -> actions/cache@v4
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  todo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pipeline migration TODO
+        run: |
+          echo "::warning::CI workflow needs to be ported from bitbucket-pipelines.yml."
+          echo "Original file: docs/migration/bitbucket-pipelines.original.yml"
