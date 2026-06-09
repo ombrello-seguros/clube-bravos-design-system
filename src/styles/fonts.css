@@ -1,7 +1,12 @@
 /* Clube Bravos Typography */
 
-/* Importing Poppins as an alternative to Geometos (geometric sans-serif) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/*
+ * Poppins (alternative to Geometos, a geometric sans-serif) must be loaded by
+ * the consuming app via <link> in the document <head> — see README. We do NOT
+ * @import it here: a remote @import inside a distributed stylesheet gets
+ * reordered after other rules when bundled, breaking the CSS rule that @import
+ * must precede all other statements.
+ */
 
 :root {
   /* Typography scale based on brand guidelines */
