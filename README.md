@@ -153,7 +153,24 @@ Em qualquer projeto que vá usar o DS:
    FIGMA_NPM_TOKEN=figp_... npm install @clube-bravos/design-system
    ```
 
-3. **Usar**:
+3. **Carregar a fonte Poppins** — adicione no `<head>` do `index.html` do app:
+
+   ```html
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link
+     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+     rel="stylesheet"
+   />
+   ```
+
+   > O `fonts.css` do pacote **não** faz mais `@import` remoto da Poppins — ele só
+   > declara as variáveis `--font-heading` / `--font-body`. Um `@import url()` dentro
+   > de um CSS distribuído é reordenado depois de outras regras no bundle do app
+   > (Vite avisa: _"@import must precede all other statements"_). Carregar via `<link>`
+   > evita isso e ainda é mais rápido (sem `@import` render-blocking encadeado).
+
+4. **Usar**:
 
    ```tsx
    import { BravosButton } from '@clube-bravos/design-system';
