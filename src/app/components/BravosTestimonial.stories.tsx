@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosTestimonial } from './BravosTestimonial';
 
 const meta = {
-  title: 'Componentes/Testimonial (card)',
+  title: 'Components/Testimonial',
   component: BravosTestimonial,
   parameters: { layout: 'fullscreen' },
   args: {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosContactForm } from './BravosContactForm';
 
 const meta = {
-  title: 'Componentes/ContactForm',
+  title: 'Components/ContactForm',
   component: BravosContactForm,
   parameters: { layout: 'fullscreen' },
   // Inputs/captcha are styled for dark sections — preview on the brand purple.

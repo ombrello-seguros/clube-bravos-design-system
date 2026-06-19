@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WaveDown, WaveUp } from './Wave';
 
 const meta = {
-  title: 'Seções/Wave',
+  title: 'Sections/Wave',
   component: WaveDown,
   parameters: { layout: 'fullscreen' },
   args: { color: 'rgb(0,164,213)' },

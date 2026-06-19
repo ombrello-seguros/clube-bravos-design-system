@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosCard } from './BravosCard';
 
 const meta = {
-  title: 'Componentes/Card',
+  title: 'Components/Card',
   component: BravosCard,
   args: {
     variant: 'default',

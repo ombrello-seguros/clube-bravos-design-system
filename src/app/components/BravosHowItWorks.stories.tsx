@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosHowItWorks } from './BravosHowItWorks';
 
 const meta = {
-  title: 'Seções/HowItWorks',
+  title: 'Sections/HowItWorks',
   component: BravosHowItWorks,
   parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof BravosHowItWorks>;
