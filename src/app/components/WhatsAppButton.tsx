@@ -1,4 +1,5 @@
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, X, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -9,22 +10,50 @@ export function WhatsAppButton({
   phoneNumber = '5521968414294',
   message = 'Olá! Gostaria de saber mais sobre o Clube Bravos.'
 }: WhatsAppButtonProps) {
-  const handleClick = () => {
-    const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(url, '_blank');
-  };
+  const [open, setOpen] = useState(false);
+  const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <button
-      onClick={handleClick}
-      className="fixed bottom-6 right-6 bg-[rgb(37,211,102)] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 z-50 group"
-      aria-label="Contato via WhatsApp"
-    >
-      <MessageCircle className="w-7 h-7" />
-      <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        Fale conosco
-      </span>
-    </button>
+    <>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="fixed bottom-6 right-6 w-[60px] h-[60px] bg-[rgb(37,211,102)] text-white rounded-full shadow-[0_10px_24px_rgba(37,211,102,0.45)] hover:scale-110 transition-transform duration-200 z-[60] flex items-center justify-center"
+        aria-label="Fale via WhatsApp"
+      >
+        <MessageCircle className="w-7 h-7" />
+      </button>
+
+      {open && (
+        <div className="fixed bottom-24 right-6 w-[300px] bg-white rounded-xl shadow-2xl z-[61] overflow-hidden border border-black/10">
+          <div className="bg-[rgb(37,211,102)] px-4 py-3.5 text-white flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <MessageCircle className="w-5 h-5" />
+              <strong style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>Fale conosco</strong>
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Fechar"
+              className="p-1 text-white"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="p-4 text-sm text-gray-600 leading-relaxed">
+            <p className="mb-3">
+              Olá! 👋 Estamos online de <b>2ª a 6ª, das 9h às 17h</b>. Quer continuar a conversa no WhatsApp?
+            </p>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-[rgb(37,211,102)] text-white px-4 py-2.5 rounded-lg font-semibold w-full justify-center"
+            >
+              Abrir WhatsApp
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

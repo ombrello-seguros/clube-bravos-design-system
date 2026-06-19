@@ -11,6 +11,15 @@ export { WhatsAppButton } from './app/components/WhatsAppButton';
 export { WaveSection } from './app/components/WaveSection';
 export { BravosLandingPage } from './app/components/BravosLandingPage';
 
+// Seções de página (novas — recriação do site)
+export { BravosHero } from './app/components/BravosHero';
+export { BravosProductsSection } from './app/components/BravosProductsSection';
+export { BravosHowItWorks } from './app/components/BravosHowItWorks';
+export { BravosTestimonials } from './app/components/BravosTestimonials';
+export { BravosFooter } from './app/components/BravosFooter';
+export { BravosSignupSheet } from './app/components/BravosSignupSheet';
+export { WaveDown, WaveUp } from './app/components/Wave';
+
 // Tipos TypeScript (se necessário)
 export type { ButtonHTMLAttributes } from 'react';
 
