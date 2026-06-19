@@ -9,7 +9,6 @@ export { BravosContactForm } from './app/components/BravosContactForm';
 export { BravosHeader } from './app/components/BravosHeader';
 export { WhatsAppButton } from './app/components/WhatsAppButton';
 export { WaveSection } from './app/components/WaveSection';
-export { BravosLandingPage } from './app/components/BravosLandingPage';
 
 // Seções de página (novas — recriação do site)
 export { BravosHero } from './app/components/BravosHero';
