@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosProductsSection } from './BravosProductsSection';
 
 const meta = {
-  title: 'Seções/ProductsSection',
+  title: 'Sections/ProductsSection',
   component: BravosProductsSection,
   parameters: { layout: 'fullscreen' },
   args: { onSignup: () => {} },

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosProductCard } from './BravosProductCard';
 
 const meta = {
-  title: 'Componentes/ProductCard',
+  title: 'Components/ProductCard',
   component: BravosProductCard,
   parameters: { layout: 'centered' },
   args: {

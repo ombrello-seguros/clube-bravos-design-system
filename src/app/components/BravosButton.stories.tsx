@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosButton } from './BravosButton';
 
 const meta = {
-  title: 'Componentes/Button',
+  title: 'Components/Button',
   component: BravosButton,
   args: { children: 'Quero ser Bravos', variant: 'primary', size: 'md' },
   argTypes: {

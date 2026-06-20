@@ -1,0 +1,33 @@
+{
+  "projectId": "ca6f7933-55f0-4a17-961f-9151e294e240",
+  "pkg": "@clube-bravos/design-system",
+  "shape": "storybook",
+  "storybookConfigDir": ".storybook",
+  "storybookStatic": ".design-sync/sb-reference",
+  "buildCmd": "npm run build:lib",
+  "readmeHeader": ".design-sync/conventions.md",
+  "titleMap": {
+    "Button": "BravosButton",
+    "Card": "BravosCard",
+    "Input": "BravosInput",
+    "Badge": "BravosBadge",
+    "ProductCard": "BravosProductCard",
+    "Testimonial": "BravosTestimonial",
+    "ContactForm": "BravosContactForm",
+    "Header": "BravosHeader",
+    "Hero": "BravosHero",
+    "ProductsSection": "BravosProductsSection",
+    "HowItWorks": "BravosHowItWorks",
+    "Testimonials": "BravosTestimonials",
+    "Footer": "BravosFooter",
+    "SignupSheet": "BravosSignupSheet",
+    "Wave": "WaveDown",
+    "Foundations": null
+  },
+  "overrides": {
+    "BravosButton": { "cardMode": "column" },
+    "BravosCard": { "cardMode": "column" },
+    "WhatsAppButton": { "cardMode": "single", "primaryStory": "Default" },
+    "BravosSignupSheet": { "cardMode": "single", "primaryStory": "Default", "viewport": "1200x760" }
+  }
+}

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosInput } from './BravosInput';
 
 const meta = {
-  title: 'Componentes/Input',
+  title: 'Components/Input',
   component: BravosInput,
   args: { label: 'Nome completo', placeholder: 'Digite seu nome' },
   decorators: [(Story) => <div className="w-[320px]"><Story /></div>],

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosBadge } from './BravosBadge';
 
 const meta = {
-  title: 'Componentes/Badge',
+  title: 'Components/Badge',
   component: BravosBadge,
   args: { children: 'Novo', variant: 'primary' },
   argTypes: { variant: { control: 'inline-radio', options: ['primary', 'secondary', 'gray'] } },

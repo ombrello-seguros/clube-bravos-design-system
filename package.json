@@ -30,10 +30,9 @@
     "registry": "https://registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "vite build",
     "build:lib": "vite build --config vite.config.lib.ts && tsc --project tsconfig.lib.json --emitDeclarationOnly --outDir dist && tsx scripts/copy-styles.ts",
     "pack:test": "npm run build:lib && npm pack",
     "prepublishOnly": "npm run build:lib",

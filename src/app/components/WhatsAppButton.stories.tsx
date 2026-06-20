@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WhatsAppButton } from './WhatsAppButton';
 
 const meta = {
-  title: 'Componentes/WhatsAppButton',
+  title: 'Components/WhatsAppButton',
   component: WhatsAppButton,
   parameters: { layout: 'fullscreen' },
   // Button is position:fixed — give it a tall canvas to anchor to.

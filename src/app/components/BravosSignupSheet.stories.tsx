@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BravosSignupSheet } from './BravosSignupSheet';
 
 const meta = {
-  title: 'Seções/SignupSheet',
+  title: 'Sections/SignupSheet',
   component: BravosSignupSheet,
   parameters: { layout: 'fullscreen' },
   args: { open: true, plan: null, onClose: () => {} },
