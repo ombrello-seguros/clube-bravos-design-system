@@ -33,7 +33,7 @@
     "dev": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build:lib": "vite build --config vite.config.lib.ts && tsc --project tsconfig.lib.json --emitDeclarationOnly --outDir dist && tsx scripts/copy-styles.ts",
+    "build:lib": "npm run build:tokens && npm run build:registry && vite build --config vite.config.lib.ts && tsc --project tsconfig.lib.json --emitDeclarationOnly --outDir dist && tsx scripts/copy-styles.ts",
     "pack:test": "npm run build:lib && npm pack",
     "prepublishOnly": "npm run build:lib",
     "prepare": "husky",
