@@ -1,44 +1,46 @@
-# Clube Bravos Design System — how to build with it
+# Clube Bravos — design context
 
-A **Tailwind-first** React component library (`@clube-bravos/design-system`). No theme
-provider or context is required — every component is self-contained. Just render the
-components and make sure the bundled stylesheet is loaded (`_ds/<folder>/styles.css`,
-which `@import`s the component CSS and the Poppins web font). Without that stylesheet the
-brand fonts/tokens are missing.
+Prepend this to any generation prompt (v0, Lovable, Figma Make, Claude). It is the shared
+contract that keeps generated screens on-brand and consistent across tools. Reference tokens
+**by name**, never by value — names are stable and impossible to mistype.
 
-## Styling idiom
+`@clube-bravos/design-system` is a **Tailwind-v4 + React** library. No theme provider: render
+components and load the bundled stylesheet (`@clube-bravos/design-system/styles`). Headings use
+Poppins (loaded by the app via `<link>`); body uses Arial.
 
-Write **Tailwind utility classes** for your own layout glue, exactly like the library does.
-The brand palette is applied as literal `rgb()` arbitrary values (the components use these
-verbatim) — the same values are also exposed as CSS variables in the loaded stylesheet:
+## Color — use the named utilities
 
-| Role | Tailwind arbitrary value | CSS var |
-|---|---|---|
-| Primary (cyan) | `bg-[rgb(0,164,213)]` `text-[rgb(0,164,213)]` | `--bravos-cyan` |
-| Cyan hover/dark | `rgb(51,188,229)` / `rgb(0,131,170)` | `--bravos-cyan-light` / `--bravos-cyan-dark` |
-| Purple (dark sections, titles) | `bg-[rgb(46,49,146)]` | `--bravos-purple` |
-| Yellow (ratings, accents) | `text-[rgb(255,193,7)]` | `--bravos-yellow` |
-| Green (WhatsApp only) | `bg-[rgb(37,211,102)]` | `--bravos-green` |
-| Grays | `rgb(157,157,156)` / `rgb(230,230,230)` / `rgb(100,100,100)` | `--bravos-gray*` |
+| Role | Class |
+|---|---|
+| Primary | `bg-bravos-cyan` `text-bravos-cyan` `border-bravos-cyan` |
+| Cyan light / dark (hover) | `bravos-cyan-light` / `bravos-cyan-dark` |
+| Purple (dark sections, titles) | `bravos-purple` / `bravos-purple-dark` |
+| Yellow (ratings, accents) | `bravos-yellow` |
+| Green (WhatsApp only) | `bravos-green` |
+| Grays | `bravos-gray` / `bravos-gray-light` / `bravos-gray-dark` |
 
-Foundation tokens also live in the stylesheet (`:root`): type scale `--text-xs … --text-6xl`,
-radii `--r-xs … --r-2xl` / `--r-full`, spacing `--s-1 … --s-8`, shadows `--shadow-sm … --shadow-xl`
-+ `--shadow-cyan`. Prefer Tailwind's own scale for spacing/radius; reach for the vars when you
-need an exact brand value.
+Semantic aliases also exist: `bg-primary`, `bg-secondary`, `bg-muted`, `text-foreground`,
+`border-border`, `ring-ring`. Foundation tokens live in `:root` — type `--text-xs…--text-6xl`,
+radii `--r-xs…--r-2xl`/`--r-full`, spacing `--s-1…--s-8`, shadows `--shadow-sm…--shadow-xl`
++`--shadow-cyan`. For spacing/radius prefer Tailwind's own scale.
 
-**Headings use Poppins**, body uses Arial. Apply Poppins explicitly on headings:
-`style={{ fontFamily: 'Poppins, Arial, sans-serif' }}` (or `var(--font-heading)`). Body text
-needs nothing.
+## Rules
 
-## Components
+1. Brand colors via the `bravos-*` classes above — **never** literal `bg-[rgb(...)]`.
+2. Headings get Poppins: `style={{ fontFamily: 'var(--font-heading)' }}`. Body needs nothing.
+3. Reuse a `Bravos*` component before generating new markup. Generate fresh only when none fits.
+4. Brand cyan is the primary action color; purple is for dark/title surfaces; green is WhatsApp-only.
 
-Atoms: `BravosButton` (variant primary/secondary/outline/ghost · size sm/md/lg),
-`BravosBadge`, `BravosInput` (label/error), `BravosCard` (default/highlight),
-`BravosProductCard`, `BravosTestimonial`, `BravosContactForm`, `WhatsAppButton` (fixed FAB).
-Page sections: `BravosHeader`, `BravosHero`, `BravosProductsSection`, `BravosHowItWorks`,
-`BravosTestimonials` (carousel), `BravosFooter`, `BravosSignupSheet` (fixed overlay, drive
-with `open`/`plan`/`onClose`), and `WaveDown` / `WaveUp` (SVG section dividers, any `color`).
-Read each component's `.prompt.md` and `.d.ts` for its exact props before using it.
+## Components (reuse these)
+
+Atoms — `BravosButton` (variant primary/secondary/outline/ghost · size sm/md/lg), `BravosBadge`,
+`BravosInput` (label/error), `BravosCard` (default/highlight), `BravosProductCard`,
+`BravosTestimonial`, `BravosContactForm`, `WhatsAppButton` (fixed FAB).
+Sections — `BravosHeader`, `BravosHero`, `BravosProductsSection`, `BravosHowItWorks`,
+`BravosTestimonials` (carousel), `BravosFooter`, `BravosSignupSheet` (overlay; `open`/`plan`/`onClose`),
+`WaveDown`/`WaveUp` (SVG dividers, any `color`).
+
+For exact props, read the component's `.d.ts`.
 
 ## Idiomatic snippet
 
@@ -48,8 +50,8 @@ import { BravosButton, BravosCard } from '@clube-bravos/design-system';
 export function PlanTeaser() {
   return (
     <section className="max-w-5xl mx-auto px-6 py-12">
-      <h2 className="text-4xl font-bold text-[rgb(46,49,146)] mb-6"
-          style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
+      <h2 className="text-4xl font-bold text-bravos-purple mb-6"
+          style={{ fontFamily: 'var(--font-heading)' }}>
         Seus benefícios
       </h2>
       <BravosCard>
