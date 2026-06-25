@@ -8,6 +8,20 @@ contract that keeps generated screens on-brand and consistent across tools. Refe
 components and load the bundled stylesheet (`@clube-bravos/design-system/styles`). Headings use
 Poppins (loaded by the app via `<link>`); body uses Arial.
 
+## Brand authority (source of truth: manual → site → lib)
+
+The brand manual (`src/imports/manual_da_marca_clube_bravos.pdf`) defines **only two colors**:
+cyan `rgb(0,164,213)` (Pantone 312C) and gray `rgb(157,157,156)`. Everything else is off-manual:
+
+- `bravos-purple` `#2C2879` — off-manual; source of truth is the site (prices). Used for dark sections/titles.
+- `bravos-yellow` — off-manual accent (ratings). `bravos-green` — WhatsApp only (external brand).
+- `bravos-cyan-light/dark`, `bravos-gray-light/dark` — derived tints of the two official colors.
+
+Typography: the manual specifies **Geometos** (titles) + **Arial** (body). The lib substitutes **Poppins**
+for Geometos (Geometos is a commercial font). Don't introduce other heading fonts.
+
+Rule for generators: snap any near-official color to the named token; never invent a new brand color.
+
 ## Color — use the named utilities
 
 | Role | Class |
