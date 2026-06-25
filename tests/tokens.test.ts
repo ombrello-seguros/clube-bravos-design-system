@@ -16,3 +16,15 @@ describe('generated theme.tokens.css', () => {
     expect(css).toContain('--color-bravos-purple: var(--bravos-purple);');
   });
 });
+
+describe('theme.css integration', () => {
+  const main = readFileSync(new URL('../src/styles/theme.css', import.meta.url), 'utf8');
+
+  it('theme.css imports the generated token file', () => {
+    expect(main).toContain("@import './theme.tokens.css';");
+    // format-agnostic: the brand var must be gone regardless of rgb() spacing
+    expect(main).not.toContain('--bravos-cyan:');
+    // the @theme brand mapping must also be gone (now lives in theme.tokens.css)
+    expect(main).not.toContain('--color-bravos-cyan:');
+  });
+});

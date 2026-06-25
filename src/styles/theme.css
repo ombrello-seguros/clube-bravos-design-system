@@ -1,20 +1,9 @@
+@import './theme.tokens.css';
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 16px;
-
-  /* Clube Bravos Brand Colors */
-  --bravos-cyan: rgb(0, 164, 213);
-  --bravos-cyan-light: rgb(51, 188, 229);
-  --bravos-cyan-dark: rgb(0, 131, 170);
-  --bravos-gray: rgb(157, 157, 156);
-  --bravos-gray-light: rgb(230, 230, 230);
-  --bravos-gray-dark: rgb(100, 100, 100);
-  /* Off-manual (not in the brand manual). Source of truth = the site: prices use #2C2879. */
-  --bravos-purple: rgb(44, 40, 121);
-  --bravos-purple-dark: rgb(35, 38, 120);
-  --bravos-yellow: rgb(255, 193, 7);
-  --bravos-green: rgb(37, 211, 102);
 
   /* Foundations — type scale (px) */
   --text-xs: 12px;
@@ -131,20 +120,6 @@
 }
 
 @theme inline {
-  /* Brand palette → named Tailwind utilities (bg-bravos-cyan, text-bravos-purple, …).
-     One name per color, backed by the single :root definition above. Prefer these
-     over literal bg-[rgb(...)] so generated code references a name, not a value. */
-  --color-bravos-cyan: var(--bravos-cyan);
-  --color-bravos-cyan-light: var(--bravos-cyan-light);
-  --color-bravos-cyan-dark: var(--bravos-cyan-dark);
-  --color-bravos-purple: var(--bravos-purple);
-  --color-bravos-purple-dark: var(--bravos-purple-dark);
-  --color-bravos-yellow: var(--bravos-yellow);
-  --color-bravos-green: var(--bravos-green);
-  --color-bravos-gray: var(--bravos-gray);
-  --color-bravos-gray-light: var(--bravos-gray-light);
-  --color-bravos-gray-dark: var(--bravos-gray-dark);
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

@@ -22,6 +22,7 @@ if (!existsSync(assetsDir)) {
 // Copiar CSS
 const cssFiles = [
   { src: 'src/styles/theme.css', dest: 'styles/theme.css' },
+  { src: 'src/styles/theme.tokens.css', dest: 'styles/theme.tokens.css' },
   { src: 'src/styles/fonts.css', dest: 'styles/fonts.css' },
 ];
 
