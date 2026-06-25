@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import { Check } from 'lucide-react';
 
 const inputClass =
-  'px-4 py-3 rounded-md border-0 bg-[#e5e7eb] text-[#1a1a1a] text-sm w-full focus:outline-none focus:ring-2 focus:ring-bravos-cyan';
+  'px-4 py-3 rounded-md border-0 bg-bravos-gray-light text-[#1a1a1a] text-sm w-full focus:outline-none focus:ring-2 focus:ring-bravos-cyan';
 
 export function BravosContactForm() {
   const [formData, setFormData] = useState({

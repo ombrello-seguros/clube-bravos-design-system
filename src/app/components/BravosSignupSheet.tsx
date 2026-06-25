@@ -26,7 +26,7 @@ interface BravosSignupSheetProps {
 }
 
 const inputClass =
-  'px-3.5 py-3 rounded-lg border-2 border-[#e5e7eb] text-sm bg-white text-[#1a1a1a] w-full focus:outline-none focus:border-bravos-cyan transition-colors';
+  'px-3.5 py-3 rounded-lg border-2 border-bravos-gray-light text-sm bg-white text-[#1a1a1a] w-full focus:outline-none focus:border-bravos-cyan transition-colors';
 const labelText = 'text-[13px] font-medium text-[#1a1a1a] mb-1.5 block';
 
 export function BravosSignupSheet({
@@ -100,7 +100,7 @@ export function BravosSignupSheet({
                     key={p.id}
                     onClick={() => setChosen(p.id)}
                     className={`text-left rounded-xl px-4 py-3.5 flex items-center gap-3.5 border-2 transition-all ${
-                      selected ? 'border-bravos-cyan bg-bravos-cyan/[0.07]' : 'border-[#e5e7eb] bg-white'
+                      selected ? 'border-bravos-cyan bg-bravos-cyan/[0.07]' : 'border-bravos-gray-light bg-white'
                     }`}
                   >
                     <span

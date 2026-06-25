@@ -10,7 +10,8 @@
   --bravos-gray: rgb(157, 157, 156);
   --bravos-gray-light: rgb(230, 230, 230);
   --bravos-gray-dark: rgb(100, 100, 100);
-  --bravos-purple: rgb(46, 49, 146);
+  /* Off-manual (not in the brand manual). Source of truth = the site: prices use #2C2879. */
+  --bravos-purple: rgb(44, 40, 121);
   --bravos-purple-dark: rgb(35, 38, 120);
   --bravos-yellow: rgb(255, 193, 7);
   --bravos-green: rgb(37, 211, 102);

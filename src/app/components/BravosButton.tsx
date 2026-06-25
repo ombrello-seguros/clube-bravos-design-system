@@ -17,7 +17,7 @@ export function BravosButton({
 
   const variants = {
     primary: 'bg-bravos-cyan text-white hover:bg-bravos-cyan-dark shadow-md',
-    secondary: 'bg-bravos-gray-light text-foreground hover:bg-[rgb(200,200,200)]',
+    secondary: 'bg-bravos-gray-light text-foreground hover:bg-bravos-gray',
     outline: 'border-2 border-bravos-cyan text-bravos-cyan hover:bg-bravos-cyan hover:text-white',
     ghost: 'text-bravos-cyan hover:bg-bravos-cyan/10'
   };

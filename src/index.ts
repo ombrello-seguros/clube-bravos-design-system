@@ -7,6 +7,7 @@ export { BravosProductCard } from './app/components/BravosProductCard';
 export { BravosTestimonial } from './app/components/BravosTestimonial';
 export { BravosContactForm } from './app/components/BravosContactForm';
 export { BravosHeader } from './app/components/BravosHeader';
+export { BravosWizardFooter } from './app/components/BravosWizardFooter';
 export { WhatsAppButton } from './app/components/WhatsAppButton';
 export { WaveSection } from './app/components/WaveSection';
 
