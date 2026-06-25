@@ -9,6 +9,22 @@
       "title": "Clube Bravos theme",
       "description": "Brand tokens (colors, Tailwind @theme) — install once.",
       "files": [{ "path": "src/styles/theme.tokens.css", "type": "registry:file", "target": "src/styles/theme.tokens.css" }]
+    },
+    {
+      "name": "bravos-button",
+      "type": "registry:component",
+      "title": "BravosButton",
+      "dependencies": ["clsx"],
+      "registryDependencies": ["clube-bravos-theme"],
+      "files": [{ "path": "src/app/components/BravosButton.tsx", "type": "registry:component", "target": "components/bravos/BravosButton.tsx" }]
+    },
+    {
+      "name": "bravos-wizard-footer",
+      "type": "registry:component",
+      "title": "BravosWizardFooter",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["bravos-button", "clube-bravos-theme"],
+      "files": [{ "path": "src/app/components/BravosWizardFooter.tsx", "type": "registry:component", "target": "components/bravos/BravosWizardFooter.tsx" }]
     }
   ]
 }

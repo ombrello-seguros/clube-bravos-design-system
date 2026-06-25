@@ -10,3 +10,18 @@ describe('registry: theme item', () => {
     expect(theme.files[0].content).toContain('--bravos-cyan: rgb(0,164,213);');
   });
 });
+
+describe('registry: component items', () => {
+  it('button depends on the theme and inlines its source', () => {
+    const btn = read('bravos-button');
+    expect(btn.type).toBe('registry:component');
+    expect(btn.registryDependencies).toContain('clube-bravos-theme');
+    expect(btn.files[0].content).toContain('export function BravosButton');
+    expect(btn.files[0].content).toContain('bg-bravos-cyan'); // named token, not literal
+  });
+  it('wizard-footer depends on button + theme', () => {
+    const wf = read('bravos-wizard-footer');
+    expect(wf.registryDependencies).toEqual(expect.arrayContaining(['bravos-button', 'clube-bravos-theme']));
+    expect(wf.files[0].content).toContain('export function BravosWizardFooter');
+  });
+});
