@@ -42,7 +42,8 @@
     "release:minor": "./scripts/release.sh minor",
     "release:major": "./scripts/release.sh major",
     "chromatic": "npx chromatic --project-token=chpt_d4a29212eb11988",
-    "build:tokens": "style-dictionary build --config build/style-dictionary.config.mjs"
+    "build:tokens": "style-dictionary build --config build/style-dictionary.config.mjs",
+    "build:registry": "tsx scripts/build-registry.ts"
   },
   "keywords": [
     "react",
