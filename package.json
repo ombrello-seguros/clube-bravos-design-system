@@ -37,6 +37,7 @@
     "pack:test": "npm run build:lib && npm pack",
     "prepublishOnly": "npm run build:lib",
     "prepare": "husky",
+    "test": "vitest run --project unit",
     "release": "./scripts/release.sh",
     "release:patch": "./scripts/release.sh patch",
     "release:minor": "./scripts/release.sh minor",
