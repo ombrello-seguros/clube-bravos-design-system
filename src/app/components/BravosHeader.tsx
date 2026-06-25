@@ -29,7 +29,7 @@ export function BravosHeader({ onSignup }: BravosHeaderProps) {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-[rgb(0,164,213)] transition-colors font-medium text-[15px]"
+                className="text-gray-700 hover:text-bravos-cyan transition-colors font-medium text-[15px]"
               >
                 {item.label}
               </a>
@@ -58,7 +58,7 @@ export function BravosHeader({ onSignup }: BravosHeaderProps) {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-[rgb(0,164,213)] transition-colors font-medium py-2"
+                className="text-gray-700 hover:text-bravos-cyan transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}

@@ -19,7 +19,7 @@ export function BravosHero({
         viewBox="0 0 100 100"
         aria-hidden="true"
         className="absolute -right-[4%] top-[8%] w-[540px] h-[540px] opacity-[0.08]"
-        style={{ fill: 'none', stroke: 'rgb(0,164,213)', strokeWidth: 6 }}
+        style={{ fill: 'none', stroke: 'var(--bravos-cyan)', strokeWidth: 6 }}
       >
         <circle cx="50" cy="50" r="44" />
         <path d="M22 64 L50 30 L78 64 Z" />
@@ -27,12 +27,12 @@ export function BravosHero({
 
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
         <div>
-          <div className="h-1 w-16 bg-[rgb(0,164,213)] mb-7 rounded-sm" />
+          <div className="h-1 w-16 bg-bravos-cyan mb-7 rounded-sm" />
           <p className="text-lg font-bold text-[#1a1a1a] mb-2.5">
             Venha fazer parte do Clube Bravos
           </p>
           <h1
-            className="text-5xl font-bold text-[rgb(0,164,213)] leading-[1.1] tracking-tight mb-9"
+            className="text-5xl font-bold text-bravos-cyan leading-[1.1] tracking-tight mb-9"
             style={{ fontFamily: 'Poppins, Arial, sans-serif' }}
           >
             O Clube que conecta você aos benefícios com melhores custos e maiores vantagens!
@@ -46,9 +46,9 @@ export function BravosHero({
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2.5 text-[rgb(46,49,146)] font-semibold text-[15px]"
+              className="inline-flex items-center gap-2.5 text-bravos-purple font-semibold text-[15px]"
             >
-              <span className="w-9 h-9 rounded-full bg-[rgb(37,211,102)] inline-flex items-center justify-center text-white shrink-0">
+              <span className="w-9 h-9 rounded-full bg-bravos-green inline-flex items-center justify-center text-white shrink-0">
                 <MessageCircle className="w-[18px] h-[18px]" />
               </span>
               ou tire dúvidas no WhatsApp

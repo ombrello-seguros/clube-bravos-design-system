@@ -26,7 +26,7 @@ interface BravosSignupSheetProps {
 }
 
 const inputClass =
-  'px-3.5 py-3 rounded-lg border-2 border-[#e5e7eb] text-sm bg-white text-[#1a1a1a] w-full focus:outline-none focus:border-[rgb(0,164,213)] transition-colors';
+  'px-3.5 py-3 rounded-lg border-2 border-[#e5e7eb] text-sm bg-white text-[#1a1a1a] w-full focus:outline-none focus:border-bravos-cyan transition-colors';
 const labelText = 'text-[13px] font-medium text-[#1a1a1a] mb-1.5 block';
 
 export function BravosSignupSheet({
@@ -83,7 +83,7 @@ export function BravosSignupSheet({
             <div
               key={i}
               className={`flex-1 h-1 rounded-sm transition-colors ${
-                i <= step ? 'bg-[rgb(0,164,213)]' : 'bg-[rgb(230,230,230)]'
+                i <= step ? 'bg-bravos-cyan' : 'bg-bravos-gray-light'
               }`}
             />
           ))}
@@ -100,21 +100,21 @@ export function BravosSignupSheet({
                     key={p.id}
                     onClick={() => setChosen(p.id)}
                     className={`text-left rounded-xl px-4 py-3.5 flex items-center gap-3.5 border-2 transition-all ${
-                      selected ? 'border-[rgb(0,164,213)] bg-[rgba(0,164,213,0.07)]' : 'border-[#e5e7eb] bg-white'
+                      selected ? 'border-bravos-cyan bg-bravos-cyan/[0.07]' : 'border-[#e5e7eb] bg-white'
                     }`}
                   >
                     <span
                       className={`w-5 h-5 rounded-full border-2 inline-flex items-center justify-center shrink-0 ${
-                        selected ? 'border-[rgb(0,164,213)]' : 'border-[#d1d5db]'
+                        selected ? 'border-bravos-cyan' : 'border-[#d1d5db]'
                       }`}
                     >
-                      {selected && <span className="w-2.5 h-2.5 rounded-full bg-[rgb(0,164,213)]" />}
+                      {selected && <span className="w-2.5 h-2.5 rounded-full bg-bravos-cyan" />}
                     </span>
                     <span className="flex-1">
-                      <span className="block font-bold text-[rgb(46,49,146)] text-[15px]" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
+                      <span className="block font-bold text-bravos-purple text-[15px]" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
                         {p.title}
                         {p.featured && (
-                          <span className="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-[rgb(255,193,7)] text-[#7a5a00] font-bold tracking-[0.04em] uppercase align-middle">
+                          <span className="ml-2 text-[11px] px-2 py-0.5 rounded-full bg-bravos-yellow text-[#7a5a00] font-bold tracking-[0.04em] uppercase align-middle">
                             Mais escolhido
                           </span>
                         )}
@@ -129,10 +129,10 @@ export function BravosSignupSheet({
 
           {step === 1 && (
             <div className="flex flex-col gap-3.5">
-              <div className="bg-[rgba(0,164,213,0.07)] border border-[rgba(0,164,213,0.20)] rounded-md px-3.5 py-2.5 text-[13px] text-gray-600 flex items-center gap-2.5">
-                <CheckCircle2 className="w-[18px] h-[18px] text-[rgb(0,164,213)]" />
+              <div className="bg-bravos-cyan/[0.07] border border-[rgba(0,164,213,0.20)] rounded-md px-3.5 py-2.5 text-[13px] text-gray-600 flex items-center gap-2.5">
+                <CheckCircle2 className="w-[18px] h-[18px] text-bravos-cyan" />
                 <span>
-                  Plano selecionado: <b className="text-[rgb(46,49,146)]">{planObj.title}</b> — {planObj.price}
+                  Plano selecionado: <b className="text-bravos-purple">{planObj.title}</b> — {planObj.price}
                 </span>
               </div>
               <label className="block">
@@ -162,7 +162,7 @@ export function BravosSignupSheet({
           {step === 2 && (
             <div className="text-center py-3">
               <div className="w-[84px] h-[84px] rounded-full bg-[rgba(37,211,102,0.14)] mx-auto mt-2 mb-[18px] flex items-center justify-center">
-                <Check className="w-10 h-10 text-[rgb(37,211,102)]" strokeWidth={3} />
+                <Check className="w-10 h-10 text-bravos-green" strokeWidth={3} />
               </div>
               <h4 className="font-bold text-[#1a1a1a] text-[22px] mb-2" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
                 Bem-vindo(a) ao Clube Bravos!
@@ -180,7 +180,7 @@ export function BravosSignupSheet({
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 bg-[rgb(37,211,102)] text-white px-4 py-2.5 rounded-lg font-semibold text-sm"
+                  className="inline-flex items-center gap-2 bg-bravos-green text-white px-4 py-2.5 rounded-lg font-semibold text-sm"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Falar no WhatsApp

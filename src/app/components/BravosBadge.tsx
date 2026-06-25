@@ -9,9 +9,9 @@ interface BravosBadgeProps {
 
 export function BravosBadge({ children, variant = 'primary', className }: BravosBadgeProps) {
   const variants = {
-    primary: 'bg-[rgb(0,164,213)] text-white',
-    secondary: 'bg-[rgb(51,188,229)] text-white',
-    gray: 'bg-[rgb(230,230,230)] text-[#1a1a1a]'
+    primary: 'bg-bravos-cyan text-white',
+    secondary: 'bg-bravos-cyan-light text-white',
+    gray: 'bg-bravos-gray-light text-[#1a1a1a]'
   };
 
   return (

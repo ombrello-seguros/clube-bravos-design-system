@@ -6,7 +6,7 @@ const meta = {
   component: BravosContactForm,
   parameters: { layout: 'fullscreen' },
   // Inputs/captcha are styled for dark sections — preview on the brand purple.
-  decorators: [(Story) => <div className="bg-[rgb(46,49,146)] p-12"><div className="max-w-xl mx-auto"><Story /></div></div>],
+  decorators: [(Story) => <div className="bg-bravos-purple p-12"><div className="max-w-xl mx-auto"><Story /></div></div>],
 } satisfies Meta<typeof BravosContactForm>;
 
 export default meta;

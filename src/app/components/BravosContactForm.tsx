@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import { Check } from 'lucide-react';
 
 const inputClass =
-  'px-4 py-3 rounded-md border-0 bg-[#e5e7eb] text-[#1a1a1a] text-sm w-full focus:outline-none focus:ring-2 focus:ring-[rgb(0,164,213)]';
+  'px-4 py-3 rounded-md border-0 bg-[#e5e7eb] text-[#1a1a1a] text-sm w-full focus:outline-none focus:ring-2 focus:ring-bravos-cyan';
 
 export function BravosContactForm() {
   const [formData, setFormData] = useState({
@@ -61,7 +61,7 @@ export function BravosContactForm() {
         </span>
         <button
           type="submit"
-          className="bg-[rgb(0,164,213)] hover:bg-[rgb(0,131,170)] text-white px-8 py-3 rounded-md font-semibold text-[15px] transition-colors"
+          className="bg-bravos-cyan hover:bg-bravos-cyan-dark text-white px-8 py-3 rounded-md font-semibold text-[15px] transition-colors"
         >
           Enviar
         </button>

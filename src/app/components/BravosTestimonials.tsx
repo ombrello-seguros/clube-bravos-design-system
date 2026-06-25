@@ -41,7 +41,7 @@ export function BravosTestimonials({ items = DEFAULT_ITEMS }: BravosTestimonials
   return (
     <section id="depoimentos" className="py-20 pb-24 px-6 md:px-8 bg-gradient-to-b from-[#fafafa] to-white">
       <div className="max-w-[980px] mx-auto relative text-center">
-        <div className="h-1 w-16 bg-[rgb(0,164,213)] mx-auto mb-6 rounded-sm" />
+        <div className="h-1 w-16 bg-bravos-cyan mx-auto mb-6 rounded-sm" />
         <h2
           className="text-[#1a1a1a] text-[22px] font-bold mb-7"
           style={{ fontFamily: 'Poppins, Arial, sans-serif' }}
@@ -74,7 +74,7 @@ export function BravosTestimonials({ items = DEFAULT_ITEMS }: BravosTestimonials
         </div>
         <div className="flex gap-1 justify-center mt-2.5">
           {Array.from({ length: t.rating ?? 5 }).map((_, i) => (
-            <Star key={i} className="w-5 h-5 fill-[rgb(255,193,7)] text-[rgb(255,193,7)]" />
+            <Star key={i} className="w-5 h-5 fill-bravos-yellow text-bravos-yellow" />
           ))}
         </div>
 
@@ -85,7 +85,7 @@ export function BravosTestimonials({ items = DEFAULT_ITEMS }: BravosTestimonials
               onClick={() => setIdx(i)}
               aria-label={`Depoimento ${i + 1}`}
               className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                i === idx ? 'bg-[rgb(0,164,213)]' : 'bg-[rgb(230,230,230)]'
+                i === idx ? 'bg-bravos-cyan' : 'bg-bravos-gray-light'
               }`}
             />
           ))}

@@ -17,7 +17,7 @@ export function BravosInput({ label, error, className, ...props }: BravosInputPr
       <input
         className={clsx(
           'w-full px-4 py-3 rounded-lg border-2 transition-all duration-200',
-          'focus:outline-none focus:border-[rgb(0,164,213)] focus:ring-2 focus:ring-[rgb(0,164,213)]/20',
+          'focus:outline-none focus:border-bravos-cyan focus:ring-2 focus:ring-bravos-cyan/20',
           error
             ? 'border-red-500'
             : 'border-gray-200 hover:border-gray-300',

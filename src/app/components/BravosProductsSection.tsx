@@ -60,7 +60,7 @@ export function BravosProductsSection({ onSignup }: BravosProductsSectionProps) 
   const ActiveIcon = active !== null ? PRODUCTS[active].icon : null;
 
   return (
-    <section id="produtos" className="bg-[rgb(0,164,213)] relative pt-2 px-6 md:px-8 pb-20">
+    <section id="produtos" className="bg-bravos-cyan relative pt-2 px-6 md:px-8 pb-20">
       <h2
         className="text-center text-white text-[40px] font-bold mb-3"
         style={{ fontFamily: 'Poppins, Arial, sans-serif' }}

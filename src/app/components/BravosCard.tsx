@@ -10,7 +10,7 @@ interface BravosCardProps {
 export function BravosCard({ children, className, variant = 'default' }: BravosCardProps) {
   const variants = {
     default: 'bg-white border border-gray-200',
-    highlight: 'bg-gradient-to-br from-[rgb(0,164,213)] to-[rgb(0,131,170)] text-white'
+    highlight: 'bg-gradient-to-br from-bravos-cyan to-bravos-cyan-dark text-white'
   };
 
   return (

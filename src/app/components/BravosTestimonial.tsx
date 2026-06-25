@@ -16,7 +16,7 @@ export function BravosTestimonial({ text, author, rating = 5 }: BravosTestimonia
         <p className="font-bold text-gray-900 mb-3">{author}</p>
         <div className="flex justify-center gap-1">
           {Array.from({ length: rating }).map((_, i) => (
-            <Star key={i} className="w-5 h-5 fill-[rgb(255,193,7)] text-[rgb(255,193,7)]" />
+            <Star key={i} className="w-5 h-5 fill-bravos-yellow text-bravos-yellow" />
           ))}
         </div>
       </div>

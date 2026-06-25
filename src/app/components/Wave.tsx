@@ -4,7 +4,7 @@ interface WaveProps {
 }
 
 /** Standalone downward wave divider — place between two solid sections. */
-export function WaveDown({ color = 'rgb(0,164,213)' }: WaveProps) {
+export function WaveDown({ color = 'var(--bravos-cyan)' }: WaveProps) {
   return (
     <div className="leading-[0]">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-20" style={{ fill: color }}>
@@ -15,7 +15,7 @@ export function WaveDown({ color = 'rgb(0,164,213)' }: WaveProps) {
 }
 
 /** Standalone upward wave divider — place between two solid sections. */
-export function WaveUp({ color = 'rgb(0,164,213)' }: WaveProps) {
+export function WaveUp({ color = 'var(--bravos-cyan)' }: WaveProps) {
   return (
     <div className="leading-[0]">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-20" style={{ fill: color }}>

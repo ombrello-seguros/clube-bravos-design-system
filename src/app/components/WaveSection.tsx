@@ -12,8 +12,8 @@ interface WaveSectionProps {
 
 export function WaveSection({
   children,
-  backgroundColor = 'rgb(0, 164, 213)',
-  waveColor = 'rgb(0, 164, 213)',
+  backgroundColor = 'var(--bravos-cyan)',
+  waveColor = 'var(--bravos-cyan)',
   wavePosition = 'both',
   waveDirection = 'down',
   className

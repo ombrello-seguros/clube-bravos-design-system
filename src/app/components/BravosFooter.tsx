@@ -12,13 +12,13 @@ export function BravosFooter({
     encodeURIComponent('Olá! Gostaria de saber mais sobre o Clube Bravos.')
 }: BravosFooterProps) {
   return (
-    <footer id="contato" className="bg-[rgb(46,49,146)] text-white pt-[72px] px-6 md:px-8 pb-12">
+    <footer id="contato" className="bg-bravos-purple text-white pt-[72px] px-6 md:px-8 pb-12">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LEFT: contact info */}
         <div>
           <p className="mb-1.5 font-medium text-lg opacity-85">Fale com o</p>
           <h2
-            className="text-[rgb(0,164,213)] text-[44px] font-extrabold leading-none mb-8"
+            className="text-bravos-cyan text-[44px] font-extrabold leading-none mb-8"
             style={{ fontFamily: 'Poppins, Arial, sans-serif' }}
           >
             Clube Bravos
@@ -31,21 +31,21 @@ export function BravosFooter({
 
           <ul className="flex flex-col gap-3.5">
             <li className="flex items-center gap-3">
-              <Clock className="w-5 h-5 text-[rgb(0,164,213)]" />
+              <Clock className="w-5 h-5 text-bravos-cyan" />
               <span className="font-medium">Atendimento 2ª a 6ª, das 9h às 17h</span>
             </li>
             <li className="flex items-center gap-3">
-              <MessageCircle className="w-5 h-5 text-[rgb(0,164,213)]" />
+              <MessageCircle className="w-5 h-5 text-bravos-cyan" />
               <span className="font-bold">(21) 96841-4294</span>
               <span className="text-xs opacity-60">WhatsApp</span>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-[rgb(0,164,213)]" />
+              <Phone className="w-5 h-5 text-bravos-cyan" />
               <span className="font-bold">(21) 3195-0788</span>
               <span className="text-xs opacity-60">Central</span>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-[rgb(0,164,213)]" />
+              <Mail className="w-5 h-5 text-bravos-cyan" />
               <span className="font-medium">contato@clubebravos.com.br</span>
             </li>
           </ul>
@@ -56,7 +56,7 @@ export function BravosFooter({
           <div className="absolute -right-7 -top-7 w-40 h-40 rounded-full bg-[rgba(37,211,102,0.16)] blur-[8px]" />
 
           <div className="relative flex items-center gap-3.5 mb-4">
-            <span className="w-12 h-12 rounded-full bg-[rgb(37,211,102)] inline-flex items-center justify-center shrink-0 shadow-[0_8px_18px_rgba(37,211,102,0.45)]">
+            <span className="w-12 h-12 rounded-full bg-bravos-green inline-flex items-center justify-center shrink-0 shadow-[0_8px_18px_rgba(37,211,102,0.45)]">
               <MessageCircle className="w-6 h-6 text-white" />
             </span>
             <div>
@@ -78,7 +78,7 @@ export function BravosFooter({
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[rgb(37,211,102)] text-white px-6 py-3.5 rounded-lg font-bold text-base shadow-[0_8px_22px_rgba(37,211,102,0.35)] relative"
+            className="inline-flex items-center gap-2.5 bg-bravos-green text-white px-6 py-3.5 rounded-lg font-bold text-base shadow-[0_8px_22px_rgba(37,211,102,0.35)] relative"
           >
             <MessageCircle className="w-[18px] h-[18px]" />
             Abrir WhatsApp
@@ -86,7 +86,7 @@ export function BravosFooter({
           </a>
 
           <div className="mt-5 pt-5 border-t border-white/[0.14] flex items-center gap-3.5 relative">
-            <Zap className="w-5 h-5 text-[rgb(255,193,7)]" />
+            <Zap className="w-5 h-5 text-bravos-yellow" />
             <div className="flex-1">
               <p className="m-0 font-bold text-sm">Quer contratar agora?</p>
               <p className="mt-0.5 text-white/70 text-[13px]">Faça você mesmo — leva 2 minutos.</p>
