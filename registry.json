@@ -22,7 +22,6 @@
       "name": "bravos-wizard-footer",
       "type": "registry:component",
       "title": "BravosWizardFooter",
-      "dependencies": ["lucide-react"],
       "registryDependencies": ["bravos-button", "clube-bravos-theme"],
       "files": [{ "path": "src/app/components/BravosWizardFooter.tsx", "type": "registry:component", "target": "components/bravos/BravosWizardFooter.tsx" }]
     }
