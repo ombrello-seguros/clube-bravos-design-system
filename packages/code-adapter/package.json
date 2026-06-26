@@ -4,7 +4,6 @@
   "description": "Your Figma Plugin",
   "main": "code.js",
   "scripts": {
-    "prebuild": "tsx scripts/sync-map.ts",
     "build": "node esbuild.config.mjs",
     "test": "vitest run",
     "lint": "eslint .",

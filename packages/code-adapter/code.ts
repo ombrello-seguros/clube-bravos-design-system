@@ -1,4 +1,5 @@
-import figmaMap from './src/figma-map.json';
+// Imported directly from the design-system package in this monorepo (no sync step).
+import figmaMap from '../../public/figma-map.json';
 import { resolve, extractProps, emit, emitFallback, type FigmaMap, type ComponentProps } from './src/adapter';
 
 const MAP = figmaMap as FigmaMap;
