@@ -7,7 +7,7 @@
     "clsx"
   ],
   "registryDependencies": [
-    "clube-bravos-theme"
+    "@clube-bravos/clube-bravos-theme"
   ],
   "files": [
     {

@@ -4,8 +4,8 @@
   "type": "registry:component",
   "title": "BravosWizardFooter",
   "registryDependencies": [
-    "bravos-button",
-    "clube-bravos-theme"
+    "@clube-bravos/bravos-button",
+    "@clube-bravos/clube-bravos-theme"
   ],
   "files": [
     {

@@ -12,7 +12,7 @@ type RegistryItemOutput = Omit<RegistryItem, 'figma'> & { $schema: string };
 
 const OUT = 'public/r';
 
-export function buildItem(item: RegistryItem): RegistryItemOutput {
+export function buildItem(item: RegistryItem, itemNames: Set<string>): RegistryItemOutput {
   // strip `figma` — it's plugin-map source, not shadcn registry data
   const { figma: _figma, ...rest } = item;
   const files = (rest.files ?? []).map((f) => {
@@ -22,13 +22,18 @@ export function buildItem(item: RegistryItem): RegistryItemOutput {
       throw new Error(`[build-registry] failed to read ${f.path} for item '${rest.name}'`, { cause: err });
     }
   });
-  return { $schema: 'https://ui.shadcn.com/schema/registry-item.json', ...rest, files };
+  // namespace internal registry deps so consumers resolve them via their @clube-bravos config
+  const registryDependencies = rest.registryDependencies?.map((d) =>
+    itemNames.has(d) ? `@clube-bravos/${d}` : d,
+  );
+  return { $schema: 'https://ui.shadcn.com/schema/registry-item.json', ...rest, registryDependencies, files };
 }
 
 function main() {
   const manifest = JSON.parse(readFileSync('registry.json', 'utf8')) as { items: RegistryItem[] };
+  const itemNames = new Set(manifest.items.map((i) => i.name));
   for (const item of manifest.items) {
-    const built = buildItem(item);
+    const built = buildItem(item, itemNames);
     const dest = join(OUT, `${item.name}.json`);
     mkdirSync(dirname(dest), { recursive: true });
     writeFileSync(dest, JSON.stringify(built, null, 2) + '\n');
