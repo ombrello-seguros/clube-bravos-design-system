@@ -1,0 +1,47 @@
+{
+  "Button": {
+    "component": "BravosButton",
+    "import": "@/components/bravos/BravosButton",
+    "registryItem": "bravos-button",
+    "props": [
+      {
+        "figma": "Variant",
+        "prop": "variant",
+        "kind": "variant",
+        "map": {
+          "Primary": "primary",
+          "Secondary": "secondary",
+          "Outline": "outline",
+          "Ghost": "ghost"
+        }
+      },
+      {
+        "figma": "Size",
+        "prop": "size",
+        "kind": "variant",
+        "map": {
+          "SM": "sm",
+          "MD": "md",
+          "LG": "lg"
+        }
+      },
+      {
+        "figma": "Label",
+        "prop": "children",
+        "kind": "text"
+      }
+    ]
+  },
+  "footer-bar": {
+    "component": "BravosWizardFooter",
+    "import": "@/components/bravos/BravosWizardFooter",
+    "registryItem": "bravos-wizard-footer",
+    "props": [
+      {
+        "figma": "Summary",
+        "prop": "summary",
+        "kind": "text"
+      }
+    ]
+  }
+}
