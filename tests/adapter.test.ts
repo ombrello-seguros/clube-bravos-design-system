@@ -47,7 +47,7 @@ describe('emit', () => {
     const { code, install } = emit(MAP.Button, { variant: 'primary', size: 'md', children: 'Próximo step' });
     expect(code).toContain("import { BravosButton } from '@/components/bravos/BravosButton';");
     expect(code).toContain('<BravosButton variant="primary" size="md">Próximo step</BravosButton>');
-    expect(install).toBe('npx shadcn add bravos-button');
+    expect(install).toBe('npx shadcn add @clube-bravos/bravos-button');
   });
   it('self-closes when there are no children', () => {
     const { code } = emit(MAP.Button, { variant: 'primary' });

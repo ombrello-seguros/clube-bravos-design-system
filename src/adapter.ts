@@ -34,7 +34,7 @@ export function emit(entry: MapEntry, props: Record<string, unknown>): { code: s
   const open = attrs ? `${entry.component} ${attrs}` : entry.component;
   const jsx = children !== undefined && children !== '' ? `<${open}>${children}</${entry.component}>` : `<${open} />`;
   const code = `import { ${entry.component} } from '${entry.import}';\n\n${jsx}`;
-  return { code, install: `npx shadcn add ${entry.registryItem}` };
+  return { code, install: `npx shadcn add @clube-bravos/${entry.registryItem}` };
 }
 
 export function emitFallback(opts: { name: string; text?: string; className?: string }): string {
