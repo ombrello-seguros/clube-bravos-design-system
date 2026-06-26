@@ -16,6 +16,7 @@ dist-ssr
 # Build / IDE caches
 *.tsbuildinfo
 storybook-static
+_site/
 .claude/
 
 # Editor
