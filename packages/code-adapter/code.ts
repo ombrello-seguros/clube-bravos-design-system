@@ -7,7 +7,11 @@ const MAP = figmaMap as FigmaMap;
 figma.codegen.on('generate', async (event): Promise<CodegenResult[]> => {
   const node = event.node;
   const main = node.type === 'INSTANCE' ? await node.getMainComponentAsync() : null;
-  const entry = resolve(MAP, main?.name ?? node.name);
+  // For a variant instance, mainComponent.name is the variant descriptor
+  // ("Variant=Primary, Size=MD"); the map is keyed by the component-set name (the parent).
+  const lookupName =
+    main?.parent?.type === 'COMPONENT_SET' ? main.parent.name : (main?.name ?? node.name);
+  const entry = resolve(MAP, lookupName);
 
   if (entry) {
     const componentProperties =

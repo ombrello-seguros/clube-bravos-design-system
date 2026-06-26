@@ -1,10 +1,12 @@
 ## Build & typecheck
 
-`figma-map.json` is generated in the design-system repo and synced here at prebuild — it is gitignored.
+This package is a workspace in the design-system monorepo. `code.ts` imports the design-system's
+generated map directly (`../../public/figma-map.json`) — there is no sync step.
 
-- `npm run build` — syncs the map (prebuild) then bundles `code.ts` → `code.js` with esbuild.
-- Run `npm run build` (or `npm run prebuild`) once before `npx tsc --noEmit -p tsconfig.json`, otherwise tsc can't resolve `./src/figma-map.json`.
-- `npm test` runs the adapter unit tests.
+- Regenerate the map from the monorepo root when components change: `npm run build:figma-map` (the root `npm run build:lib` does this too).
+- `npm run build` — bundles `code.ts` → `code.js` with esbuild (run after the map is up to date).
+- `npx tsc --noEmit -p tsconfig.json` — typecheck (resolves the map from `../../public/`).
+- `npm test` — adapter unit tests (also run by the root `npm test`).
 
 ---
 

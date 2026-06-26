@@ -1,7 +1,8 @@
 {
   "name": "code-adapter",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "private": true,
+  "description": "Figma Dev Mode codegen plugin for the Clube Bravos design system",
   "main": "code.js",
   "scripts": {
     "build": "node esbuild.config.mjs",
