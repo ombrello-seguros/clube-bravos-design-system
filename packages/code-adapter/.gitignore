@@ -1,0 +1,14 @@
+# Node
+*.log
+*.log.*
+node_modules
+
+out/
+dist/
+code.js
+src/figma-map.json
+scripts/*.js
+
+# Compiled outputs (esbuild is the bundler; tsc is typecheck-only)
+src/*.js
+tests/*.js
