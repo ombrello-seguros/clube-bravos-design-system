@@ -10,6 +10,7 @@ const MAP: FigmaMap = {
       { figma: 'Variant', prop: 'variant', kind: 'variant', map: { Primary: 'primary', Outline: 'outline' } },
       { figma: 'Size', prop: 'size', kind: 'variant', map: { MD: 'md' } },
       { figma: 'Label', prop: 'children', kind: 'text' },
+      { figma: 'Disabled', prop: 'disabled', kind: 'boolean' },
     ],
   },
 };
@@ -35,6 +36,10 @@ describe('extractProps', () => {
     const props = extractProps(MAP.Button, { 'Variant#1:0': { type: 'VARIANT', value: 'Ghost' } });
     expect(props.variant).toBe('Ghost');
   });
+  it('coerces a boolean kind to a real boolean', () => {
+    const props = extractProps(MAP.Button, { 'Disabled#1:3': { type: 'BOOLEAN', value: true } });
+    expect(props.disabled).toBe(true);
+  });
 });
 
 describe('emit', () => {
@@ -47,6 +52,11 @@ describe('emit', () => {
   it('self-closes when there are no children', () => {
     const { code } = emit(MAP.Button, { variant: 'primary' });
     expect(code).toContain('<BravosButton variant="primary" />');
+  });
+  it('self-closes when children is an empty string', () => {
+    const { code } = emit(MAP.Button, { variant: 'primary', children: '' });
+    expect(code).toContain('<BravosButton variant="primary" />');
+    expect(code).not.toContain('<BravosButton variant="primary"></BravosButton>');
   });
 });
 
