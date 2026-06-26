@@ -16,14 +16,31 @@
       "title": "BravosButton",
       "dependencies": ["clsx"],
       "registryDependencies": ["clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosButton.tsx", "type": "registry:component", "target": "components/bravos/BravosButton.tsx" }]
+      "files": [{ "path": "src/app/components/BravosButton.tsx", "type": "registry:component", "target": "components/bravos/BravosButton.tsx" }],
+      "figma": {
+        "node": "Button",
+        "component": "BravosButton",
+        "import": "@/components/bravos/BravosButton",
+        "props": [
+          { "figma": "Variant", "prop": "variant", "kind": "variant",
+            "map": { "Primary": "primary", "Secondary": "secondary", "Outline": "outline", "Ghost": "ghost" } },
+          { "figma": "Size", "prop": "size", "kind": "variant", "map": { "SM": "sm", "MD": "md", "LG": "lg" } },
+          { "figma": "Label", "prop": "children", "kind": "text" }
+        ]
+      }
     },
     {
       "name": "bravos-wizard-footer",
       "type": "registry:component",
       "title": "BravosWizardFooter",
       "registryDependencies": ["bravos-button", "clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosWizardFooter.tsx", "type": "registry:component", "target": "components/bravos/BravosWizardFooter.tsx" }]
+      "files": [{ "path": "src/app/components/BravosWizardFooter.tsx", "type": "registry:component", "target": "components/bravos/BravosWizardFooter.tsx" }],
+      "figma": {
+        "node": "footer-bar",
+        "component": "BravosWizardFooter",
+        "import": "@/components/bravos/BravosWizardFooter",
+        "props": [{ "figma": "Summary", "prop": "summary", "kind": "text" }]
+      }
     }
   ]
 }

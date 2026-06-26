@@ -16,5 +16,38 @@
       "target": "components/bravos/BravosButton.tsx",
       "content": "import { ButtonHTMLAttributes } from 'react';\nimport { clsx } from 'clsx';\n\ninterface BravosButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {\n  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';\n  size?: 'sm' | 'md' | 'lg';\n}\n\nexport function BravosButton({\n  variant = 'primary',\n  size = 'md',\n  className,\n  children,\n  ...props\n}: BravosButtonProps) {\n  const baseStyles = 'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none';\n\n  const variants = {\n    primary: 'bg-bravos-cyan text-white hover:bg-bravos-cyan-dark shadow-md',\n    secondary: 'bg-bravos-gray-light text-foreground hover:bg-bravos-gray',\n    outline: 'border-2 border-bravos-cyan text-bravos-cyan hover:bg-bravos-cyan hover:text-white',\n    ghost: 'text-bravos-cyan hover:bg-bravos-cyan/10'\n  };\n\n  const sizes = {\n    sm: 'px-3 py-1.5 text-sm',\n    md: 'px-6 py-3 text-base',\n    lg: 'px-8 py-4 text-lg'\n  };\n\n  return (\n    <button\n      className={clsx(baseStyles, variants[variant], sizes[size], className)}\n      {...props}\n    >\n      {children}\n    </button>\n  );\n}\n"
     }
-  ]
+  ],
+  "figma": {
+    "node": "Button",
+    "component": "BravosButton",
+    "import": "@/components/bravos/BravosButton",
+    "props": [
+      {
+        "figma": "Variant",
+        "prop": "variant",
+        "kind": "variant",
+        "map": {
+          "Primary": "primary",
+          "Secondary": "secondary",
+          "Outline": "outline",
+          "Ghost": "ghost"
+        }
+      },
+      {
+        "figma": "Size",
+        "prop": "size",
+        "kind": "variant",
+        "map": {
+          "SM": "sm",
+          "MD": "md",
+          "LG": "lg"
+        }
+      },
+      {
+        "figma": "Label",
+        "prop": "children",
+        "kind": "text"
+      }
+    ]
+  }
 }
