@@ -20,7 +20,9 @@ describe('figma-map', () => {
   });
   it('the button entry maps a variant prop', () => {
     const btn = entries.find((e) => e.registryItem === 'bravos-button');
+    expect(btn).toBeDefined();
     const rule = btn.props.find((p: any) => p.prop === 'variant');
+    expect(rule).toBeDefined();
     expect(rule.kind).toBe('variant');
     expect(rule.map).toBeTruthy();
   });

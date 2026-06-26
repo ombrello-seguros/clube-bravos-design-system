@@ -5,20 +5,24 @@ type RegistryFile = { path: string; type: string; target?: string };
 type RegistryItem = {
   name: string; type: string; title?: string; description?: string;
   dependencies?: string[]; registryDependencies?: string[]; files?: RegistryFile[];
+  // map-source-only metadata, consumed by build-figma-map — must NOT leak into shadcn registry items
+  figma?: unknown;
 };
-type RegistryItemOutput = RegistryItem & { $schema: string };
+type RegistryItemOutput = Omit<RegistryItem, 'figma'> & { $schema: string };
 
 const OUT = 'public/r';
 
 export function buildItem(item: RegistryItem): RegistryItemOutput {
-  const files = (item.files ?? []).map((f) => {
+  // strip `figma` — it's plugin-map source, not shadcn registry data
+  const { figma: _figma, ...rest } = item;
+  const files = (rest.files ?? []).map((f) => {
     try {
       return { ...f, content: readFileSync(f.path, 'utf8') };
     } catch (err) {
-      throw new Error(`[build-registry] failed to read ${f.path} for item '${item.name}'`, { cause: err });
+      throw new Error(`[build-registry] failed to read ${f.path} for item '${rest.name}'`, { cause: err });
     }
   });
-  return { $schema: 'https://ui.shadcn.com/schema/registry-item.json', ...item, files };
+  return { $schema: 'https://ui.shadcn.com/schema/registry-item.json', ...rest, files };
 }
 
 function main() {
