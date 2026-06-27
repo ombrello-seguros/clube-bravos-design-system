@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-`@clube-bravos/design-system` — React + Tailwind component library, published to Figma's **private npm registry**. Single repo, single `package.json`.
+`@clube-bravos/design-system` — React + Tailwind component library, published to Figma's **private npm registry**. An **npm-workspaces monorepo**: the design-system at the repo root, plus `packages/code-adapter` (the Figma Dev Mode codegen plugin). The root package is the published one; `packages/*` are `private`.
 
 ## Commands
 
@@ -14,7 +14,7 @@ npm run release        # Bump version + CHANGELOG + tag from conventional commit
 npm run chromatic      # Visual regression
 ```
 
-No test runner and no lint script — quality gates are commitlint (commit-msg hook) and Chromatic.
+Quality gates: **vitest** unit tests (`npm test` → `vitest run --project unit`, run in CI on main push), **commitlint** (commit-msg hook + PR CI), and **Chromatic** (visual regression). No lint script.
 
 ## Architecture
 

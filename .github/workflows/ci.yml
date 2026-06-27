@@ -49,6 +49,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Build lib
         run: npm run build:lib
+      - name: Unit tests (design-system + workspace packages)
+        run: npm test
 
   # Tag v*.*.* dispara build + publish no registry Figma.
   # Requer secret FIGMA_NPM_TOKEN em Settings → Secrets and variables → Actions.
