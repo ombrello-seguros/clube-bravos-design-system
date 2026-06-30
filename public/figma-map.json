@@ -43,5 +43,46 @@
         "kind": "text"
       }
     ]
+  },
+  "Badge": {
+    "component": "BravosBadge",
+    "import": "@/components/bravos/BravosBadge",
+    "registryItem": "bravos-badge",
+    "props": [
+      {
+        "figma": "Variant",
+        "prop": "variant",
+        "kind": "variant"
+      },
+      {
+        "figma": "Label",
+        "prop": "children",
+        "kind": "text"
+      }
+    ]
+  },
+  "Input": {
+    "component": "BravosInput",
+    "import": "@/components/bravos/BravosInput",
+    "registryItem": "bravos-input",
+    "props": [
+      {
+        "figma": "Label",
+        "prop": "label",
+        "kind": "text"
+      }
+    ]
+  },
+  "Card": {
+    "component": "BravosCard",
+    "import": "@/components/bravos/BravosCard",
+    "registryItem": "bravos-card",
+    "props": [
+      {
+        "figma": "Variant",
+        "prop": "variant",
+        "kind": "variant"
+      }
+    ]
   }
 }

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bravos-badge",
+  "type": "registry:component",
+  "title": "BravosBadge",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "@clube-bravos/clube-bravos-theme"
+  ],
+  "files": [
+    {
+      "path": "src/app/components/BravosBadge.tsx",
+      "type": "registry:component",
+      "target": "components/bravos/BravosBadge.tsx",
+      "content": "import { ReactNode } from 'react';\nimport { clsx } from 'clsx';\n\ninterface BravosBadgeProps {\n  children: ReactNode;\n  variant?: 'primary' | 'secondary' | 'gray';\n  className?: string;\n}\n\nexport function BravosBadge({ children, variant = 'primary', className }: BravosBadgeProps) {\n  const variants = {\n    primary: 'bg-bravos-cyan text-white',\n    secondary: 'bg-bravos-cyan-light text-white',\n    gray: 'bg-bravos-gray-light text-[#1a1a1a]'\n  };\n\n  return (\n    <span className={clsx(\n      'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium',\n      variants[variant],\n      className\n    )}>\n      {children}\n    </span>\n  );\n}\n"
+    }
+  ]
+}
