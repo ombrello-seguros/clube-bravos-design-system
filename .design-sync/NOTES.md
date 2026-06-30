@@ -20,7 +20,8 @@ Build before converter: `npm run build:lib`. Reference storybook: `.design-sync/
 
 ## Re-sync risks (watch-list)
 
-- **Owned preview `BravosSignupSheet.tsx`** is tied to the component's API (`open`/`plan`/`onClose`). If those props change, update the owned preview or it silently mis-renders.
+- **Owned preview `BravosSignupSheet.tsx`** is tied to the component's API (`open`/`plan`/`onClose`). If those props change, update the owned preview or it silently mis-renders. **It was accidentally deleted in commit `14c8221` (color-scheme update) and restored in the 2026-06-30 sync** — without it the component captures blank (`[RENDER_BLANK]`). It is gitignored-adjacent only by being uncommitted; keep it committed so the next sync has it.
+- **Conventions header is empty.** `readmeHeader` → `.design-sync/conventions.md` → symlink → `guidelines/Guidelines.md`, which is a 0-byte file. The uploaded README therefore carries only the auto-generated body (no hand-authored design-agent conventions). Fill `guidelines/Guidelines.md` and re-sync to ship a real header.
 - **Gradient placeholders**: `BravosHero`, `BravosHowItWorks`, and `BravosProductsSection` ship CSS-gradient placeholders where photos will eventually go (mirrors the portal design). Graded `match` against the same placeholders in storybook — when real images land, re-verify.
 - **Poppins is remote** — if the font host is unreachable at build time the reference still renders (fallback), but `[FONT_MISSING]` would not catch a wrong font since both sides fall back the same. Keep the `preview-head.html` link current.
 - **Storybook upgraded to v10.4.6** mid-setup; `addon-essentials` was replaced by `@storybook/addon-docs` (core). A future toolchain bump may move this again.
