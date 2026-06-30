@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bravos-card",
+  "type": "registry:component",
+  "title": "BravosCard",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "@clube-bravos/clube-bravos-theme"
+  ],
+  "files": [
+    {
+      "path": "src/app/components/BravosCard.tsx",
+      "type": "registry:component",
+      "target": "components/bravos/BravosCard.tsx",
+      "content": "import { ReactNode } from 'react';\nimport { clsx } from 'clsx';\n\ninterface BravosCardProps {\n  children: ReactNode;\n  className?: string;\n  variant?: 'default' | 'highlight';\n}\n\nexport function BravosCard({ children, className, variant = 'default' }: BravosCardProps) {\n  const variants = {\n    default: 'bg-white border border-gray-200',\n    highlight: 'bg-gradient-to-br from-bravos-cyan to-bravos-cyan-dark text-white'\n  };\n\n  return (\n    <div className={clsx(\n      'rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl',\n      variants[variant],\n      className\n    )}>\n      {children}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

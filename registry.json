@@ -41,6 +41,51 @@
         "import": "@/components/bravos/BravosWizardFooter",
         "props": [{ "figma": "Summary", "prop": "summary", "kind": "text" }]
       }
+    },
+    {
+      "name": "bravos-badge",
+      "type": "registry:component",
+      "title": "BravosBadge",
+      "dependencies": ["clsx"],
+      "registryDependencies": ["clube-bravos-theme"],
+      "files": [{ "path": "src/app/components/BravosBadge.tsx", "type": "registry:component", "target": "components/bravos/BravosBadge.tsx" }],
+      "figma": {
+        "node": "Badge",
+        "component": "BravosBadge",
+        "import": "@/components/bravos/BravosBadge",
+        "props": [
+          { "figma": "Variant", "prop": "variant", "kind": "variant" },
+          { "figma": "Label", "prop": "children", "kind": "text" }
+        ]
+      }
+    },
+    {
+      "name": "bravos-input",
+      "type": "registry:component",
+      "title": "BravosInput",
+      "dependencies": ["clsx"],
+      "registryDependencies": ["clube-bravos-theme"],
+      "files": [{ "path": "src/app/components/BravosInput.tsx", "type": "registry:component", "target": "components/bravos/BravosInput.tsx" }],
+      "figma": {
+        "node": "Input",
+        "component": "BravosInput",
+        "import": "@/components/bravos/BravosInput",
+        "props": [{ "figma": "Label", "prop": "label", "kind": "text" }]
+      }
+    },
+    {
+      "name": "bravos-card",
+      "type": "registry:component",
+      "title": "BravosCard",
+      "dependencies": ["clsx"],
+      "registryDependencies": ["clube-bravos-theme"],
+      "files": [{ "path": "src/app/components/BravosCard.tsx", "type": "registry:component", "target": "components/bravos/BravosCard.tsx" }],
+      "figma": {
+        "node": "Card",
+        "component": "BravosCard",
+        "import": "@/components/bravos/BravosCard",
+        "props": [{ "figma": "Variant", "prop": "variant", "kind": "variant" }]
+      }
     }
   ]
 }

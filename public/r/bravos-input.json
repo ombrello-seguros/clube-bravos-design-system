@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bravos-input",
+  "type": "registry:component",
+  "title": "BravosInput",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "@clube-bravos/clube-bravos-theme"
+  ],
+  "files": [
+    {
+      "path": "src/app/components/BravosInput.tsx",
+      "type": "registry:component",
+      "target": "components/bravos/BravosInput.tsx",
+      "content": "import { InputHTMLAttributes } from 'react';\nimport { clsx } from 'clsx';\n\ninterface BravosInputProps extends InputHTMLAttributes<HTMLInputElement> {\n  label?: string;\n  error?: string;\n}\n\nexport function BravosInput({ label, error, className, ...props }: BravosInputProps) {\n  return (\n    <div className=\"w-full\">\n      {label && (\n        <label className=\"block mb-2 font-medium text-[#1a1a1a]\">\n          {label}\n        </label>\n      )}\n      <input\n        className={clsx(\n          'w-full px-4 py-3 rounded-lg border-2 transition-all duration-200',\n          'focus:outline-none focus:border-bravos-cyan focus:ring-2 focus:ring-bravos-cyan/20',\n          error\n            ? 'border-red-500'\n            : 'border-gray-200 hover:border-gray-300',\n          className\n        )}\n        {...props}\n      />\n      {error && (\n        <p className=\"mt-1 text-sm text-red-500\">{error}</p>\n      )}\n    </div>\n  );\n}\n"
+    }
+  ]
+}
