@@ -6,7 +6,7 @@ const meta = {
   component: BravosButton,
   args: { children: 'Quero ser Bravos', variant: 'primary', size: 'md' },
   argTypes: {
-    variant: { control: 'inline-radio', options: ['primary', 'secondary', 'outline', 'ghost'] },
+    variant: { control: 'inline-radio', options: ['primary', 'secondary', 'outline', 'ghost', 'neutral'] },
     size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
   },
 } satisfies Meta<typeof BravosButton>;
@@ -18,6 +18,7 @@ export const Primary: Story = {};
 export const Secondary: Story = { args: { variant: 'secondary' } };
 export const Outline: Story = { args: { variant: 'outline' } };
 export const Ghost: Story = { args: { variant: 'ghost' } };
+export const Neutral: Story = { args: { variant: 'neutral', children: 'Salvar versão' } };
 
 export const Sizes: Story = {
   render: (args) => (
