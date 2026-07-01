@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 import { clsx } from 'clsx';
 
 interface BravosButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'neutral';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -19,7 +19,8 @@ export function BravosButton({
     primary: 'bg-bravos-cyan text-white hover:bg-bravos-cyan-dark shadow-md',
     secondary: 'bg-bravos-gray-light text-foreground hover:bg-bravos-gray',
     outline: 'border-2 border-bravos-cyan text-bravos-cyan hover:bg-bravos-cyan hover:text-white',
-    ghost: 'text-bravos-cyan hover:bg-bravos-cyan/10'
+    ghost: 'text-bravos-cyan hover:bg-bravos-cyan/10',
+    neutral: 'bg-white text-foreground border border-bravos-gray-light hover:bg-bravos-gray-light/40'
   };
 
   const sizes = {
