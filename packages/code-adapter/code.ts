@@ -1,10 +1,30 @@
-// Imported directly from the design-system package in this monorepo (no sync step).
-import figmaMap from '../../public/figma-map.json';
+import bundledMap from '../../public/figma-map.json';
 import { resolve, extractProps, emit, emitFallback, type FigmaMap, type ComponentProps } from './src/adapter';
 
-const MAP = figmaMap as FigmaMap;
+// The map is hosted on GitHub Pages (CI redeploys it on every registry change).
+// Fetch it once per session so the plugin stays current without a rebuild/republish;
+// the bundled copy (inlined at build time) is the offline fallback.
+const MAP_URL = 'https://ombrello-seguros.github.io/clube-bravos-design-system/figma-map.json';
+const BUNDLED_MAP = bundledMap as FigmaMap;
+
+let cachedMap: FigmaMap | null = null;
+let fetchAttempted = false;
+async function getMap(): Promise<FigmaMap> {
+  if (cachedMap) return cachedMap;
+  if (!fetchAttempted) {
+    fetchAttempted = true;
+    try {
+      const res = await fetch(MAP_URL);
+      if (res.ok) cachedMap = (await res.json()) as FigmaMap;
+    } catch {
+      // Pages unreachable / offline — fall back to the bundled map.
+    }
+  }
+  return cachedMap ?? BUNDLED_MAP;
+}
 
 figma.codegen.on('generate', async (event): Promise<CodegenResult[]> => {
+  const MAP = await getMap();
   const node = event.node;
   const main = node.type === 'INSTANCE' ? await node.getMainComponentAsync() : null;
   // For a variant instance, mainComponent.name is the variant descriptor
