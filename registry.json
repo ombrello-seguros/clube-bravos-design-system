@@ -86,6 +86,14 @@
         "import": "@/components/bravos/BravosCard",
         "props": [{ "figma": "Variant", "prop": "variant", "kind": "variant" }]
       }
+    },
+    {
+      "name": "bravos-whatsapp-button",
+      "type": "registry:component",
+      "title": "WhatsAppButton",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["clube-bravos-theme"],
+      "files": [{ "path": "src/app/components/WhatsAppButton.tsx", "type": "registry:component", "target": "components/bravos/WhatsAppButton.tsx" }]
     }
   ]
 }
