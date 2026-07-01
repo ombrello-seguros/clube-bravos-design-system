@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bravos-whatsapp-button",
+  "type": "registry:component",
+  "title": "WhatsAppButton",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@clube-bravos/clube-bravos-theme"
+  ],
+  "files": [
+    {
+      "path": "src/app/components/WhatsAppButton.tsx",
+      "type": "registry:component",
+      "target": "components/bravos/WhatsAppButton.tsx",
+      "content": "import { MessageCircle, X, ArrowRight } from 'lucide-react';\nimport { useState } from 'react';\n\ninterface WhatsAppButtonProps {\n  phoneNumber?: string;\n  message?: string;\n}\n\nexport function WhatsAppButton({\n  phoneNumber = '5521968414294',\n  message = 'Olá! Gostaria de saber mais sobre o Clube Bravos.'\n}: WhatsAppButtonProps) {\n  const [open, setOpen] = useState(false);\n  const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;\n\n  return (\n    <>\n      <button\n        onClick={() => setOpen((o) => !o)}\n        className=\"fixed bottom-6 right-6 w-[60px] h-[60px] bg-bravos-green text-white rounded-full shadow-[0_10px_24px_rgba(37,211,102,0.45)] hover:scale-110 transition-transform duration-200 z-[60] flex items-center justify-center\"\n        aria-label=\"Fale via WhatsApp\"\n      >\n        <MessageCircle className=\"w-7 h-7\" />\n      </button>\n\n      {open && (\n        <div className=\"fixed bottom-24 right-6 w-[300px] bg-white rounded-xl shadow-2xl z-[61] overflow-hidden border border-black/10\">\n          <div className=\"bg-bravos-green px-4 py-3.5 text-white flex items-center justify-between\">\n            <div className=\"flex items-center gap-2.5\">\n              <MessageCircle className=\"w-5 h-5\" />\n              <strong style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>Fale conosco</strong>\n            </div>\n            <button\n              onClick={() => setOpen(false)}\n              aria-label=\"Fechar\"\n              className=\"p-1 text-white\"\n            >\n              <X className=\"w-4 h-4\" />\n            </button>\n          </div>\n          <div className=\"p-4 text-sm text-gray-600 leading-relaxed\">\n            <p className=\"mb-3\">\n              Olá! 👋 Estamos online de <b>2ª a 6ª, das 9h às 17h</b>. Quer continuar a conversa no WhatsApp?\n            </p>\n            <a\n              href={waUrl}\n              target=\"_blank\"\n              rel=\"noreferrer\"\n              className=\"inline-flex items-center gap-2 bg-bravos-green text-white px-4 py-2.5 rounded-lg font-semibold w-full justify-center\"\n            >\n              Abrir WhatsApp\n              <ArrowRight className=\"w-4 h-4\" />\n            </a>\n          </div>\n        </div>\n      )}\n    </>\n  );\n}\n"
+    }
+  ]
+}
