@@ -19,7 +19,8 @@
   ],
   "networkAccess": {
     "allowedDomains": [
-      "none"
-    ]
+      "https://ombrello-seguros.github.io"
+    ],
+    "reasoning": "Fetches the generated figma-map.json from the Clube Bravos registry on GitHub Pages so codegen stays in sync with the design system without republishing the plugin."
   }
 }
