@@ -11,23 +11,24 @@
     "Card": "BravosCard",
     "Input": "BravosInput",
     "Badge": "BravosBadge",
-    "ProductCard": "BravosProductCard",
-    "Testimonial": "BravosTestimonial",
-    "ContactForm": "BravosContactForm",
-    "Header": "BravosHeader",
-    "Hero": "BravosHero",
-    "ProductsSection": "BravosProductsSection",
-    "HowItWorks": "BravosHowItWorks",
-    "Testimonials": "BravosTestimonials",
-    "Footer": "BravosFooter",
-    "SignupSheet": "BravosSignupSheet",
-    "Wave": "WaveDown",
+    "WizardFooter": "BravosWizardFooter",
+    "ProductCard": null,
+    "Testimonial": null,
+    "ContactForm": null,
+    "Header": null,
+    "Hero": null,
+    "ProductsSection": null,
+    "HowItWorks": null,
+    "Testimonials": null,
+    "Footer": null,
+    "SignupSheet": null,
+    "Wave": null,
     "Foundations": null
   },
   "overrides": {
     "BravosButton": { "cardMode": "column" },
     "BravosCard": { "cardMode": "column" },
     "WhatsAppButton": { "cardMode": "single", "primaryStory": "Default" },
-    "BravosSignupSheet": { "cardMode": "single", "primaryStory": "Default", "viewport": "1200x760" }
+    "BravosWizardFooter": { "cardMode": "column" }
   }
 }
