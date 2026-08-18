@@ -84,5 +84,29 @@
         "kind": "variant"
       }
     ]
+  },
+  "Field": {
+    "component": "BravosField",
+    "import": "@/components/bravos/BravosField",
+    "registryItem": "bravos-field",
+    "props": [
+      {
+        "figma": "Label",
+        "prop": "label",
+        "kind": "text"
+      }
+    ]
+  },
+  "Select": {
+    "component": "BravosSelect",
+    "import": "@/components/bravos/BravosSelect",
+    "registryItem": "bravos-select",
+    "props": []
+  },
+  "RadioCards": {
+    "component": "BravosRadioCards",
+    "import": "@/components/bravos/BravosRadioCards",
+    "registryItem": "bravos-radio-cards",
+    "props": []
   }
 }
