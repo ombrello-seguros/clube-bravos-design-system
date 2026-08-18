@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bravos-field",
+  "type": "registry:component",
+  "title": "BravosField",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "@clube-bravos/clube-bravos-theme"
+  ],
+  "files": [
+    {
+      "path": "src/app/components/BravosField.tsx",
+      "type": "registry:component",
+      "target": "components/bravos/BravosField.tsx",
+      "content": "import { type ReactNode } from 'react';\nimport { clsx } from 'clsx';\n\nexport interface BravosFieldProps {\n  label: string;\n  htmlFor?: string;\n  error?: string;\n  required?: boolean;\n  hint?: string;\n  className?: string;\n  children: ReactNode;\n}\n\n/**\n * Rótulo + obrigatoriedade + dica + mensagem de erro em volta de um controle.\n * O controle vai como `children` (BravosInput sem `label`, BravosSelect,\n * BravosRadioCards, ou um controle do próprio consumidor).\n */\nexport function BravosField({\n  label,\n  htmlFor,\n  error,\n  required,\n  hint,\n  className,\n  children,\n}: BravosFieldProps) {\n  return (\n    <div className={clsx('w-full', className)}>\n      <label htmlFor={htmlFor} className=\"block mb-2 font-medium text-[#1a1a1a] text-sm\">\n        {label}\n        {required && <span className=\"text-red-500 ml-1\">*</span>}\n      </label>\n      {children}\n      {hint && !error && <p className=\"mt-1 text-xs text-gray-500\">{hint}</p>}\n      {error && <p className=\"mt-1 text-sm text-red-500\">{error}</p>}\n    </div>\n  );\n}\n"
+    }
+  ]
+}
