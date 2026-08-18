@@ -8,24 +8,62 @@
       "type": "registry:theme",
       "title": "Clube Bravos theme",
       "description": "Brand tokens (colors, Tailwind @theme) — install once.",
-      "files": [{ "path": "src/styles/theme.tokens.css", "type": "registry:file", "target": "src/styles/theme.tokens.css" }]
+      "files": [
+        {
+          "path": "src/styles/theme.tokens.css",
+          "type": "registry:file",
+          "target": "src/styles/theme.tokens.css"
+        }
+      ]
     },
     {
       "name": "bravos-button",
       "type": "registry:component",
       "title": "BravosButton",
-      "dependencies": ["clsx"],
-      "registryDependencies": ["clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosButton.tsx", "type": "registry:component", "target": "components/bravos/BravosButton.tsx" }],
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosButton.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosButton.tsx"
+        }
+      ],
       "figma": {
         "node": "Button",
         "component": "BravosButton",
         "import": "@/components/bravos/BravosButton",
         "props": [
-          { "figma": "Variant", "prop": "variant", "kind": "variant",
-            "map": { "Primary": "primary", "Secondary": "secondary", "Outline": "outline", "Ghost": "ghost" } },
-          { "figma": "Size", "prop": "size", "kind": "variant", "map": { "SM": "sm", "MD": "md", "LG": "lg" } },
-          { "figma": "Label", "prop": "children", "kind": "text" }
+          {
+            "figma": "Variant",
+            "prop": "variant",
+            "kind": "variant",
+            "map": {
+              "Primary": "primary",
+              "Secondary": "secondary",
+              "Outline": "outline",
+              "Ghost": "ghost"
+            }
+          },
+          {
+            "figma": "Size",
+            "prop": "size",
+            "kind": "variant",
+            "map": {
+              "SM": "sm",
+              "MD": "md",
+              "LG": "lg"
+            }
+          },
+          {
+            "figma": "Label",
+            "prop": "children",
+            "kind": "text"
+          }
         ]
       }
     },
@@ -33,29 +71,62 @@
       "name": "bravos-wizard-footer",
       "type": "registry:component",
       "title": "BravosWizardFooter",
-      "registryDependencies": ["bravos-button", "clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosWizardFooter.tsx", "type": "registry:component", "target": "components/bravos/BravosWizardFooter.tsx" }],
+      "registryDependencies": [
+        "bravos-button",
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosWizardFooter.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosWizardFooter.tsx"
+        }
+      ],
       "figma": {
         "node": "footer-bar",
         "component": "BravosWizardFooter",
         "import": "@/components/bravos/BravosWizardFooter",
-        "props": [{ "figma": "Summary", "prop": "summary", "kind": "text" }]
+        "props": [
+          {
+            "figma": "Summary",
+            "prop": "summary",
+            "kind": "text"
+          }
+        ]
       }
     },
     {
       "name": "bravos-badge",
       "type": "registry:component",
       "title": "BravosBadge",
-      "dependencies": ["clsx"],
-      "registryDependencies": ["clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosBadge.tsx", "type": "registry:component", "target": "components/bravos/BravosBadge.tsx" }],
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosBadge.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosBadge.tsx"
+        }
+      ],
       "figma": {
         "node": "Badge",
         "component": "BravosBadge",
         "import": "@/components/bravos/BravosBadge",
         "props": [
-          { "figma": "Variant", "prop": "variant", "kind": "variant" },
-          { "figma": "Label", "prop": "children", "kind": "text" }
+          {
+            "figma": "Variant",
+            "prop": "variant",
+            "kind": "variant"
+          },
+          {
+            "figma": "Label",
+            "prop": "children",
+            "kind": "text"
+          }
         ]
       }
     },
@@ -63,37 +134,158 @@
       "name": "bravos-input",
       "type": "registry:component",
       "title": "BravosInput",
-      "dependencies": ["clsx"],
-      "registryDependencies": ["clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosInput.tsx", "type": "registry:component", "target": "components/bravos/BravosInput.tsx" }],
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosInput.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosInput.tsx"
+        }
+      ],
       "figma": {
         "node": "Input",
         "component": "BravosInput",
         "import": "@/components/bravos/BravosInput",
-        "props": [{ "figma": "Label", "prop": "label", "kind": "text" }]
+        "props": [
+          {
+            "figma": "Label",
+            "prop": "label",
+            "kind": "text"
+          }
+        ]
       }
     },
     {
       "name": "bravos-card",
       "type": "registry:component",
       "title": "BravosCard",
-      "dependencies": ["clsx"],
-      "registryDependencies": ["clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/BravosCard.tsx", "type": "registry:component", "target": "components/bravos/BravosCard.tsx" }],
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosCard.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosCard.tsx"
+        }
+      ],
       "figma": {
         "node": "Card",
         "component": "BravosCard",
         "import": "@/components/bravos/BravosCard",
-        "props": [{ "figma": "Variant", "prop": "variant", "kind": "variant" }]
+        "props": [
+          {
+            "figma": "Variant",
+            "prop": "variant",
+            "kind": "variant"
+          }
+        ]
       }
     },
     {
       "name": "bravos-whatsapp-button",
       "type": "registry:component",
       "title": "WhatsAppButton",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["clube-bravos-theme"],
-      "files": [{ "path": "src/app/components/WhatsAppButton.tsx", "type": "registry:component", "target": "components/bravos/WhatsAppButton.tsx" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/WhatsAppButton.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/WhatsAppButton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bravos-field",
+      "type": "registry:component",
+      "title": "BravosField",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosField.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosField.tsx"
+        }
+      ],
+      "figma": {
+        "node": "Field",
+        "component": "BravosField",
+        "import": "@/components/bravos/BravosField",
+        "props": [
+          {
+            "figma": "Label",
+            "prop": "label",
+            "kind": "text"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bravos-select",
+      "type": "registry:component",
+      "title": "BravosSelect",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "bravos-input",
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosSelect.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosSelect.tsx"
+        }
+      ],
+      "figma": {
+        "node": "Select",
+        "component": "BravosSelect",
+        "import": "@/components/bravos/BravosSelect",
+        "props": []
+      }
+    },
+    {
+      "name": "bravos-radio-cards",
+      "type": "registry:component",
+      "title": "BravosRadioCards",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "clube-bravos-theme"
+      ],
+      "files": [
+        {
+          "path": "src/app/components/BravosRadioCards.tsx",
+          "type": "registry:component",
+          "target": "components/bravos/BravosRadioCards.tsx"
+        }
+      ],
+      "figma": {
+        "node": "RadioCards",
+        "component": "BravosRadioCards",
+        "import": "@/components/bravos/BravosRadioCards",
+        "props": []
+      }
     }
   ]
 }

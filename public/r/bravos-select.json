@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bravos-select",
+  "type": "registry:component",
+  "title": "BravosSelect",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "@clube-bravos/bravos-input",
+    "@clube-bravos/clube-bravos-theme"
+  ],
+  "files": [
+    {
+      "path": "src/app/components/BravosSelect.tsx",
+      "type": "registry:component",
+      "target": "components/bravos/BravosSelect.tsx",
+      "content": "import { forwardRef, type SelectHTMLAttributes } from 'react';\nimport { clsx } from 'clsx';\nimport { bravosControlClassName } from './BravosInput';\n\nexport interface BravosSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {\n  error?: boolean | string;\n}\n\nexport const BravosSelect = forwardRef<HTMLSelectElement, BravosSelectProps>(\n  ({ error, className, children, ...props }, ref) => (\n    <select\n      ref={ref}\n      className={clsx(bravosControlClassName(error), 'bg-white appearance-none pr-10', className)}\n      {...props}\n    >\n      {children}\n    </select>\n  ),\n);\nBravosSelect.displayName = 'BravosSelect';\n"
+    }
+  ]
+}

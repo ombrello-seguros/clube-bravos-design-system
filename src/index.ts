@@ -1,7 +1,10 @@
 // Componentes principais
 export { BravosButton } from './app/components/BravosButton';
 export { BravosCard } from './app/components/BravosCard';
-export { BravosInput } from './app/components/BravosInput';
+export { BravosInput, bravosControlClassName } from './app/components/BravosInput';
+export { BravosField } from './app/components/BravosField';
+export { BravosSelect } from './app/components/BravosSelect';
+export { BravosRadioCards } from './app/components/BravosRadioCards';
 export { BravosBadge } from './app/components/BravosBadge';
 export { BravosProductCard } from './app/components/BravosProductCard';
 export { BravosTestimonial } from './app/components/BravosTestimonial';
