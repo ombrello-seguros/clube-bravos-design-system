@@ -27,9 +27,6 @@
     "README.md",
     "LICENSE"
   ],
-  "publishConfig": {
-    "registry": "https://registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/"
-  },
   "scripts": {
     "dev": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",

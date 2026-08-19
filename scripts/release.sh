@@ -6,8 +6,9 @@
 #   ./scripts/release.sh                   # detecta bump dos commits convencionais desde a última tag
 #   ./scripts/release.sh patch|minor|major # força o tipo de bump
 #
-# O push da tag dispara o bitbucket-pipelines.yml, que builda e publica
-# no registry da Figma. Este script NÃO publica — só versiona e cria a tag.
+# O push da tag dispara o .github/workflows/registry-pages.yml, que builda
+# e publica o registry shadcn no GitHub Pages. Este script NÃO publica —
+# só versiona e cria a tag.
 
 set -euo pipefail
 
@@ -82,8 +83,6 @@ git tag -a "v$NEW" -m "v$NEW"
 echo ""
 echo "✅ Tag v$NEW criada localmente."
 echo ""
-echo "Pra disparar o publish via Bitbucket Pipelines:"
+echo "Pra disparar o publish do registry shadcn no GitHub Pages:"
 echo "  git push origin main"
 echo "  git push origin v$NEW"
-echo ""
-echo "Pra publicar manualmente (sem CI) ver README.md → 'Publicar manualmente'."
