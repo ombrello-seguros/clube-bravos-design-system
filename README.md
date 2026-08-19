@@ -1,6 +1,6 @@
 # Clube Bravos Design System
 
-Design System oficial do Clube Bravos de Benefícios. Publicado como `@clube-bravos/design-system` no **registry privado da Figma**.
+Design System oficial do Clube Bravos de Benefícios. Distribuído como um **registry shadcn** (`@clube-bravos`), hospedado no GitHub Pages — consumidores instalam componente por componente via `npx shadcn add`. Ver `guidelines/registry.md` para o guia de consumo.
 
 ## Estrutura do repositório
 
@@ -16,7 +16,9 @@ Design System oficial do Clube Bravos de Benefícios. Publicado como `@clube-bra
 │   └── release.sh                  # Bump semver + changelog + tag
 ├── .husky/commit-msg               # Hook que valida msg via commitlint
 ├── commitlint.config.cjs           # Conventional Commits
-├── bitbucket-pipelines.yml         # CI: commitlint em PRs, publish em tags
+├── .github/workflows/ci.yml        # CI: commitlint em PRs, build em main
+├── .github/workflows/registry-pages.yml  # Builda + publica o registry shadcn no GitHub Pages
+├── registry.json                   # Manifesto fonte do registry shadcn
 ├── vite.config.ts                  # Preview do Figma Make (dev)
 ├── vite.config.lib.ts              # Build da lib (gera dist/)
 ├── tsconfig.json                   # tsconfig base (noEmit: true — dev)
@@ -58,7 +60,7 @@ Tipos comuns: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf`, `style
 - `fix:` → bump **patch**
 - `BREAKING CHANGE:` no corpo ou `feat!:` → bump **major**
 
-O `bitbucket-pipelines.yml` roda `commitlint` em PRs e bloqueia merge se algum commit estiver fora do padrão.
+O `.github/workflows/ci.yml` roda `commitlint` em PRs e bloqueia merge se algum commit estiver fora do padrão.
 
 ## Como liberar uma nova versão
 
@@ -91,67 +93,41 @@ git push origin main
 git push origin v1.2.3
 ```
 
-O push da tag dispara o `bitbucket-pipelines.yml`, que builda e publica `@clube-bravos/design-system@1.2.3` no registry da Figma.
+O push da tag dispara o `.github/workflows/registry-pages.yml`, que builda e publica o registry shadcn (`public/r/*.json`) no GitHub Pages, sob `vX.Y.Z/r/`. Não requer nenhum secret além do `GITHUB_TOKEN` padrão do Actions.
 
-### Fluxo manual (sem CI)
+### O que cada workflow faz
 
-Pra hotfix/emergência sem passar pelo Bitbucket:
+| Trigger                    | Workflow             | O que roda                                         |
+|-----------------------------|----------------------|-----------------------------------------------------|
+| PR → qualquer branch        | `ci.yml`              | `commitlint --from origin/<dest>`                    |
+| Push em `main`              | `ci.yml`              | `npm ci && npm run build:lib && npm test`            |
+| Push em `main` ou tag `v*`  | `registry-pages.yml`  | Builda o registry e publica em `gh-pages` (raiz para `main`, `vX.Y.Z/` para tags) |
 
-```bash
-# Build
-npm ci
-npm run build:lib
+## Consumindo o Design System
 
-# .npmrc local (LOCAL — não commitar; já está no .gitignore)
-cat > .npmrc <<EOF
-@clube-bravos:registry=https://registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/
-//registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/:_authToken=SEU_TOKEN_AQUI
-EOF
+O DS é distribuído como um **registry shadcn** (`@clube-bravos`), hospedado no GitHub Pages — não como pacote npm. Guia completo em `guidelines/registry.md`. Resumo:
 
-npm publish --ignore-scripts
+1. **Registrar a fonte** no `components.json` do projeto consumidor:
 
-rm -f .npmrc
-```
-
-## Configurar o Bitbucket Pipelines
-
-Pra o pipeline publicar com sucesso, uma vez:
-
-1. **Habilitar Pipelines** no repo: *Repository settings → Pipelines → Settings → Enable*.
-2. **Cadastrar o token do Figma** como variável segura:
-   - *Repository settings → Repository variables*
-   - Nome: `FIGMA_NPM_TOKEN`
-   - Valor: token `figp_...` (Figma → Settings → Account → Personal access tokens → Registry)
-   - Marcar **Secured**.
-
-Sem `FIGMA_NPM_TOKEN`, o `npm publish` no pipeline falha com 401.
-
-### O que cada pipeline faz
-
-| Trigger              | Job                                | Publica? |
-|----------------------|------------------------------------|----------|
-| PR → qualquer branch | `commitlint --from origin/<dest>`  | Não      |
-| Push em `main`       | `npm ci && npm run build:lib`      | Não      |
-| Push de tag `v*`     | Build + `npm publish`              | **Sim**  |
-
-A separação entre `main` (só valida) e `tags` (publica) garante que cada versão publicada tem uma tag rastreável.
-
-## Consumindo o pacote
-
-Em qualquer projeto que vá usar o DS:
-
-1. **`.npmrc`** (gitignored) na raiz do projeto consumidor:
-
-   ```
-   @clube-bravos:registry=https://registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/
-   //registry.figma.com/npm/b16de91e-5c85-47bb-8dc8-1a87d10ef689/registry/:_authToken=${FIGMA_NPM_TOKEN}
+   ```json
+   {
+     "registries": {
+       "@clube-bravos": "https://ombrello-seguros.github.io/clube-bravos-design-system/r/{name}.json"
+     }
+   }
    ```
 
-2. **Instalar**:
+   Pra fixar numa versão, aponte pro snapshot com tag: `.../v1.2.3/r/{name}.json`.
+
+2. **Instalar componentes**:
 
    ```bash
-   FIGMA_NPM_TOKEN=figp_... npm install @clube-bravos/design-system
+   npx shadcn add @clube-bravos/clube-bravos-theme    # tokens/theme — instalar uma vez
+   npx shadcn add @clube-bravos/bravos-button
+   npx shadcn add @clube-bravos/bravos-wizard-footer  # traz button + theme junto
    ```
+
+   `registryDependencies` resolvem sozinhas pelo mesmo `@clube-bravos` — sem URLs manuais.
 
 3. **Carregar a fonte Poppins** — adicione no `<head>` do `index.html` do app:
 
@@ -164,32 +140,21 @@ Em qualquer projeto que vá usar o DS:
    />
    ```
 
-   > O `fonts.css` do pacote **não** faz mais `@import` remoto da Poppins — ele só
-   > declara as variáveis `--font-heading` / `--font-body`. Um `@import url()` dentro
-   > de um CSS distribuído é reordenado depois de outras regras no bundle do app
-   > (Vite avisa: _"@import must precede all other statements"_). Carregar via `<link>`
-   > evita isso e ainda é mais rápido (sem `@import` render-blocking encadeado).
+   > O tema instalado (`clube-bravos-theme`) só declara as variáveis `--font-heading` /
+   > `--font-body` — não faz `@import` remoto da Poppins. Carregar via `<link>` evita
+   > problemas de ordenação de `@import` no bundle do app e é mais rápido.
 
-4. **Usar**:
+4. **Usar** — cada `npx shadcn add` copia o componente pra dentro do projeto consumidor (ex. `components/bravos/BravosButton.tsx`), então o import é local:
 
    ```tsx
-   import { BravosButton } from '@clube-bravos/design-system';
-   import '@clube-bravos/design-system/styles';
-   import '@clube-bravos/design-system/fonts';
+   import { BravosButton } from '@/components/bravos/BravosButton';
 
    <BravosButton variant="primary">Olá</BravosButton>
    ```
 
-## Segurança
-
-- **`.npmrc` nunca vai pro git** — está em `.gitignore`. Tokens só ficam em:
-  - Variável segura `FIGMA_NPM_TOKEN` no Bitbucket Pipelines.
-  - `.npmrc` local da máquina do dev.
-- Se um token vazar (commit acidental, screenshot, etc.), **revogá-lo imediatamente** em Figma → Settings → Account → Personal access tokens e emitir um novo.
-
 ## Troubleshooting
 
-- **`npm publish` falha com 401**: token expirado ou faltando `FIGMA_NPM_TOKEN` no Bitbucket.
-- **`npm publish` falha com 409 / "cannot publish over existing version"**: a versão em `package.json` já existe no registry. Bumpe via `npm run release` antes de fazer push da tag.
+- **`npx shadcn add @clube-bravos/...` falha ao resolver**: confirme que `components.json` tem a entrada `registries.@clube-bravos` apontando pro GitHub Pages (passo 1 acima), e que o item existe em `public/r/` no branch/tag consultado.
+- **Componente instalado desatualizado**: o registry versiona por tag (`vX.Y.Z/r/`); sem versão fixada, `{name}.json` sem prefixo resolve pra raiz (`main`, sempre a mais recente).
 - **`commitlint` falhando em PR**: algum commit do PR não está no formato Conventional Commits. Rebase/edit + force push.
 - **Sem `.d.ts` no `dist/`**: garanta que `tsconfig.lib.json` tem `"noEmit": false` (o `tsconfig.json` base tem `noEmit: true`, e o `lib` precisa sobrescrever).

@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-`@clube-bravos/design-system` — React + Tailwind component library, published to Figma's **private npm registry**. An **npm-workspaces monorepo**: the design-system at the repo root, plus `packages/code-adapter` (the Figma Dev Mode codegen plugin). The root package is the published one; `packages/*` are `private`.
+`@clube-bravos/design-system` — React + Tailwind component library, distributed as a **shadcn registry** (`@clube-bravos`, hosted on GitHub Pages) rather than an npm package — consumers run `npx shadcn add @clube-bravos/<item>`, see `guidelines/registry.md`. An **npm-workspaces monorepo**: the design-system at the repo root, plus `packages/code-adapter` (the Figma Dev Mode codegen plugin). `packages/*` are `private`.
 
 ## Commands
 
@@ -28,11 +28,11 @@ Styling is **Tailwind v4** (`@tailwindcss/vite`, no `tailwind.config`). No theme
 
 **Build (`build:lib`) has three steps** because no single tool does it all: vite (`vite.config.lib.ts`) bundles ES+CJS with react/lucide/clsx/tailwind-merge externalized; `tsc --project tsconfig.lib.json` emits `.d.ts` (base `tsconfig.json` is `noEmit: true` — lib overrides it); `scripts/copy-styles.ts` copies `theme.css`/`fonts.css` + logos into `dist/`.
 
-**Dependency split is intentional:** `dependencies` = runtime only (`clsx`, `lucide-react`, `tailwind-merge`); the large `devDependencies` (MUI, all Radix, etc.) back the dev/preview surface and never reach consumers. `files: ["dist", ...]` restricts the published tarball.
+**Dependency split is intentional:** `dependencies` = runtime only (`clsx`, `lucide-react`, `tailwind-merge`); the large `devDependencies` (MUI, all Radix, etc.) back the dev/preview surface and never reach consumers. `files: ["dist", ...]` restricts what `npm pack` includes — kept for local packing/testing (`pack:test`), though nothing publishes this tarball to a registry anymore; shadcn-registry consumers get raw `src/` files copied in via `npx shadcn add`, not `dist/`.
 
 ## Release & publish
 
-Conventional Commits enforced (`feat`→minor, `fix`→patch, `feat!`/`BREAKING CHANGE`→major). `release.sh` only prepares the bump+tag locally. **Publishing happens in CI on `v*` tag push** → `git push origin main && git push origin vX.Y.Z`. CI lives in `bitbucket-pipelines.yml` (legacy) with a GitHub Actions stub being migrated in; `FIGMA_NPM_TOKEN` must be set as a CI secret or publish 401s. Full registry/token/troubleshooting details are in `README.md`.
+Conventional Commits enforced (`feat`→minor, `fix`→patch, `feat!`/`BREAKING CHANGE`→major). `release.sh` only prepares the bump+tag locally. **The shadcn registry publishes in CI on push to `main` or `v*` tag push** → `git push origin main && git push origin vX.Y.Z`. CI is GitHub Actions: `.github/workflows/ci.yml` runs commitlint (PRs) + build/test (main push); `.github/workflows/registry-pages.yml` builds `registry.json` → `public/r/*.json` and publishes to the `gh-pages` branch (tags land in a versioned `vX.Y.Z/` subdir). No secrets beyond the default `GITHUB_TOKEN` are required. There is no npm publish step — the Figma npm registry this project used to publish to is discontinued; `package.json` still builds `dist/` (`build:lib`) for local packing/testing, but nothing ships it to a registry. Full consumer/troubleshooting details are in `README.md` and `guidelines/registry.md`.
 
 ## design-sync
 
