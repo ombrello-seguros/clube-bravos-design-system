@@ -13,20 +13,20 @@ export function BravosButton({
   children,
   ...props
 }: BravosButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none';
+  const baseStyles = 'inline-flex items-center justify-center gap-2 rounded-cb-control font-cb-body font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cb-primary focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
   const variants = {
-    primary: 'bg-bravos-cyan text-white hover:bg-bravos-cyan-dark shadow-md',
-    secondary: 'bg-bravos-gray-light text-foreground hover:bg-bravos-gray',
-    outline: 'border-2 border-bravos-cyan text-bravos-cyan hover:bg-bravos-cyan hover:text-white',
-    ghost: 'text-bravos-cyan hover:bg-bravos-cyan/10',
-    neutral: 'bg-white text-foreground border border-bravos-gray-light hover:bg-bravos-gray-light/40'
+    primary: 'bg-cb-primary text-cb-surface hover:bg-cb-primary-text',
+    secondary: 'bg-cb-seg text-cb-fg hover:bg-cb-border',
+    outline: 'border border-cb-border bg-cb-surface text-cb-primary-text hover:bg-cb-primary-tint',
+    ghost: 'text-cb-primary-text hover:bg-cb-primary-tint',
+    neutral: 'bg-cb-surface text-cb-fg border border-cb-border hover:bg-cb-ground'
   };
 
   const sizes = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg'
+    sm: 'px-3 py-2 text-sm',
+    md: 'px-5 py-3 text-[15px]',
+    lg: 'px-6 py-4 text-base'
   };
 
   return (

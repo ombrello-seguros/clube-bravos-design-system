@@ -9,13 +9,13 @@ interface BravosCardProps {
 
 export function BravosCard({ children, className, variant = 'default' }: BravosCardProps) {
   const variants = {
-    default: 'bg-white border border-gray-200',
-    highlight: 'bg-gradient-to-br from-bravos-cyan to-bravos-cyan-dark text-white'
+    default: 'bg-cb-surface text-cb-fg border border-cb-border',
+    highlight: 'bg-cb-primary text-cb-surface'
   };
 
   return (
     <div className={clsx(
-      'rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl',
+      'rounded-cb-card p-6 font-cb-body shadow-cb-card',
       variants[variant],
       className
     )}>

@@ -8,10 +8,9 @@ import { clsx } from 'clsx';
  */
 export function bravosControlClassName(error?: boolean | string, className?: string) {
   return clsx(
-    'w-full px-4 py-3 rounded-lg border-2 transition-all duration-200',
-    'focus:outline-none focus:border-bravos-cyan focus:ring-2 focus:ring-bravos-cyan/20',
-    'disabled:bg-gray-100 disabled:cursor-not-allowed',
-    error ? 'border-red-500' : 'border-gray-200 hover:border-gray-300',
+    'w-full px-4 py-3 rounded-cb-control border bg-cb-surface text-[15px] text-cb-fg placeholder:text-cb-fg-3 transition-colors duration-200 disabled:bg-cb-off-bg disabled:text-cb-fg-3',
+    'focus:outline-none focus:border-cb-primary focus:ring-2 focus:ring-cb-primary/20',
+    error ? 'border-cb-bad-dot' : 'border-cb-border hover:border-cb-fg-3',
     className,
   );
 }
@@ -25,10 +24,10 @@ export interface BravosInputProps extends InputHTMLAttributes<HTMLInputElement> 
 
 export const BravosInput = forwardRef<HTMLInputElement, BravosInputProps>(
   ({ label, error, className, ...props }, ref) => (
-    <div className="w-full">
-      {label && <label className="block mb-2 font-medium text-[#1a1a1a]">{label}</label>}
+    <div className="w-full font-cb-body">
+      {label && <label className="block mb-2 text-sm font-medium text-cb-fg">{label}</label>}
       <input ref={ref} className={bravosControlClassName(error, className)} {...props} />
-      {typeof error === 'string' && error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+      {typeof error === 'string' && error && <p className="mt-1 text-sm text-cb-bad-fg">{error}</p>}
     </div>
   ),
 );

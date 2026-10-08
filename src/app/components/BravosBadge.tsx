@@ -9,14 +9,14 @@ interface BravosBadgeProps {
 
 export function BravosBadge({ children, variant = 'primary', className }: BravosBadgeProps) {
   const variants = {
-    primary: 'bg-bravos-cyan text-white',
-    secondary: 'bg-bravos-cyan-light text-white',
-    gray: 'bg-bravos-gray-light text-[#1a1a1a]'
+    primary: 'bg-cb-primary-tint text-cb-primary-text',
+    secondary: 'bg-cb-purple-2/30 text-cb-purple',
+    gray: 'bg-cb-off-bg text-cb-fg-2'
   };
 
   return (
     <span className={clsx(
-      'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium',
+      'cb-status-dot inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-cb-body text-xs font-semibold',
       variants[variant],
       className
     )}>

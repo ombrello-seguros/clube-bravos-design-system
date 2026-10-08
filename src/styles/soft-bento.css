@@ -1,0 +1,132 @@
+/* Soft Bento is additive: generated brand tokens remain unchanged. */
+:root {
+  --cb-ground: #F5F6FA;
+  --cb-surface: #FFFFFF;
+  --cb-fg: #1A1848;
+  --cb-fg-2: #4A4D6B;
+  --cb-fg-3: #6C6F8A;
+  --cb-border: #E6E8F0;
+  --cb-seg: #E9EBF3;
+  --cb-primary: #00769A;
+  --cb-primary-text: #005F7E;
+  --cb-primary-tint: #EAF7FC;
+  --cb-purple: #2C2879;
+  --cb-purple-2: #C9C6F2;
+  --cb-ok-bg: #E6F6EC;
+  --cb-ok-fg: #14633A;
+  --cb-ok-dot: #25D366;
+  --cb-warn-bg: #FFF4D6;
+  --cb-warn-fg: #7A5600;
+  --cb-warn-dot: #FFC107;
+  --cb-info-bg: #E3F4FA;
+  --cb-bad-bg: #FDE8EA;
+  --cb-bad-fg: #9B1C2B;
+  --cb-bad-dot: #E5484D;
+  --cb-off-bg: #EEF1F4;
+  --cb-font-head: 'Bricolage Grotesque', system-ui, sans-serif;
+  --cb-font-body: 'DM Sans', system-ui, sans-serif;
+  --cb-font-caption: 'Instrument Sans', system-ui, sans-serif;
+  --cb-font-data: 'IBM Plex Mono', ui-monospace, monospace;
+  --cb-shadow-card: 0 1px 3px #1A18480D, 0 8px 24px #1A184808;
+}
+
+@theme inline {
+  --color-cb-ground: var(--cb-ground);
+  --color-cb-surface: var(--cb-surface);
+  --color-cb-fg: var(--cb-fg);
+  --color-cb-fg-2: var(--cb-fg-2);
+  --color-cb-fg-3: var(--cb-fg-3);
+  --color-cb-border: var(--cb-border);
+  --color-cb-seg: var(--cb-seg);
+  --color-cb-primary: var(--cb-primary);
+  --color-cb-primary-text: var(--cb-primary-text);
+  --color-cb-primary-tint: var(--cb-primary-tint);
+  --color-cb-purple: var(--cb-purple);
+  --color-cb-purple-2: var(--cb-purple-2);
+  --color-cb-ok-bg: var(--cb-ok-bg);
+  --color-cb-ok-fg: var(--cb-ok-fg);
+  --color-cb-ok-dot: var(--cb-ok-dot);
+  --color-cb-warn-bg: var(--cb-warn-bg);
+  --color-cb-warn-fg: var(--cb-warn-fg);
+  --color-cb-warn-dot: var(--cb-warn-dot);
+  --color-cb-info-bg: var(--cb-info-bg);
+  --color-cb-bad-bg: var(--cb-bad-bg);
+  --color-cb-bad-fg: var(--cb-bad-fg);
+  --color-cb-bad-dot: var(--cb-bad-dot);
+  --color-cb-off-bg: var(--cb-off-bg);
+  --radius-cb-control: 10px;
+  --radius-cb-card: 16px;
+  --radius-cb-8: 8px;
+  --radius-cb-10: 10px;
+  --radius-cb-12: 12px;
+  --radius-cb-16: 16px;
+  --radius-cb-pill: 9999px;
+  --spacing-cb-4: 4px;
+  --spacing-cb-8: 8px;
+  --spacing-cb-12: 12px;
+  --spacing-cb-16: 16px;
+  --spacing-cb-24: 24px;
+  --spacing-cb-32: 32px;
+  --spacing-cb-48: 48px;
+  --shadow-cb-card: var(--cb-shadow-card);
+}
+
+@utility font-cb-head {
+  font-family: var(--cb-font-head);
+}
+@utility font-cb-body {
+  font-family: var(--cb-font-body);
+}
+@utility font-cb-caption {
+  font-family: var(--cb-font-caption);
+}
+@utility font-cb-data {
+  font-family: var(--cb-font-data);
+}
+@utility shadow-cb-card {
+  box-shadow: var(--cb-shadow-card);
+}
+@utility cb-page-title {
+  font-family: var(--cb-font-head);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--cb-fg);
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
+}
+@utility cb-page-subtitle {
+  font-family: var(--cb-font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--cb-fg-2);
+}
+@utility cb-status-dot {
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: currentColor;
+  }
+}
+
+.cb-focus-ring:focus,
+.cb-focus-ring:focus-visible {
+  outline: 2px solid var(--cb-primary);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+[data-cb-badge-tone='green']::before {
+  background-color: var(--cb-ok-dot);
+}
+[data-cb-badge-tone='yellow']::before {
+  background-color: var(--cb-warn-dot);
+}
+[data-cb-badge-tone='red']::before {
+  background-color: var(--cb-bad-dot);
+}

@@ -10,8 +10,8 @@ interface BravosWizardFooterProps {
 /** Bottom navigation bar for multi-step forms — progress summary on the left, composed actions on the right. */
 export function BravosWizardFooter({ summary, children }: BravosWizardFooterProps) {
   return (
-    <div className="bg-white border-t border-border flex items-center justify-between px-8 py-4">
-      <p className="text-muted-foreground text-[13px] font-medium whitespace-nowrap">{summary}</p>
+    <div className="bg-cb-surface border-t border-cb-border flex flex-wrap items-center justify-between gap-4 px-4 md:px-8 py-4 font-cb-body">
+      <p className="text-cb-fg-3 text-[13px] font-cb-caption font-medium whitespace-nowrap">{summary}</p>
       <div className="flex items-center gap-3">{children}</div>
     </div>
   );

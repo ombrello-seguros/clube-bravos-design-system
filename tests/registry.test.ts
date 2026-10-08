@@ -11,13 +11,23 @@ describe('registry: theme item', () => {
   });
 });
 
+describe('registry: soft-bento item', () => {
+  it('is a registry:theme and inlines the cb-* tokens', () => {
+    const sb = read('clube-bravos-soft-bento');
+    expect(sb.type).toBe('registry:theme');
+    expect(sb.files[0].target).toBe('src/styles/soft-bento.css');
+    expect(sb.files[0].content).toContain('--color-cb-primary: var(--cb-primary);');
+  });
+});
+
 describe('registry: component items', () => {
   it('button depends on the theme and inlines its source', () => {
     const btn = read('bravos-button');
     expect(btn.type).toBe('registry:component');
     expect(btn.registryDependencies).toContain('@clube-bravos/clube-bravos-theme');
     expect(btn.files[0].content).toContain('export function BravosButton');
-    expect(btn.files[0].content).toContain('bg-bravos-cyan'); // named token, not literal
+    expect(btn.registryDependencies).toContain('@clube-bravos/clube-bravos-soft-bento');
+    expect(btn.files[0].content).toContain('bg-cb-primary'); // token cb-*, não literal
   });
   it('wizard-footer depends on button + theme', () => {
     const wf = read('bravos-wizard-footer');
