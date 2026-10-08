@@ -3,8 +3,12 @@ on:
   push:
     branches: [main]
     tags: ['v*']
+  workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: registry-pages
+  cancel-in-progress: false
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -25,9 +29,11 @@ jobs:
           mkdir -p _site/r
           cp public/r/*.json _site/r/
           cp public/figma-map.json _site/
+          cp registry.json _site/
       - name: Compute destination dir
         id: dest
         run: echo "dir=${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}" >> "$GITHUB_OUTPUT"
+      # gh-pages acumula o histórico (raiz = main, vX.Y.Z/ = tags).
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -35,3 +41,32 @@ jobs:
           publish_dir: ./_site
           destination_dir: ${{ steps.dest.outputs.dir }}
           keep_files: true
+
+  # O Pages do repo está em "GitHub Actions" (build_type=workflow): ele NÃO serve
+  # o branch gh-pages sozinho. Sem este job o site ficava congelado num deploy
+  # antigo do main (registry.json na raiz 200, r/*.json 404). Aqui o conteúdo
+  # inteiro do gh-pages vira o artefato publicado.
+  # Só roda a partir do main: a branch policy do environment github-pages
+  # aceita main/gh-pages, não tags. Snapshots vX.Y.Z/ entram no próximo deploy do main
+  # (ou via workflow_dispatch).
+  deploy:
+    needs: publish
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
