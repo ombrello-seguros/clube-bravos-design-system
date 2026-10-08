@@ -5,14 +5,15 @@
   "title": "BravosWizardFooter",
   "registryDependencies": [
     "@clube-bravos/bravos-button",
-    "@clube-bravos/clube-bravos-theme"
+    "@clube-bravos/clube-bravos-theme",
+    "@clube-bravos/clube-bravos-soft-bento"
   ],
   "files": [
     {
       "path": "src/app/components/BravosWizardFooter.tsx",
       "type": "registry:component",
       "target": "components/bravos/BravosWizardFooter.tsx",
-      "content": "import { ReactNode } from 'react';\n\ninterface BravosWizardFooterProps {\n  /** Left-aligned progress summary, e.g. \"v4 · 5 seções · 18 campos\". */\n  summary: string;\n  /** Action buttons, right-aligned — compose with BravosButton (e.g. back + next). */\n  children: ReactNode;\n}\n\n/** Bottom navigation bar for multi-step forms — progress summary on the left, composed actions on the right. */\nexport function BravosWizardFooter({ summary, children }: BravosWizardFooterProps) {\n  return (\n    <div className=\"bg-white border-t border-border flex items-center justify-between px-8 py-4\">\n      <p className=\"text-muted-foreground text-[13px] font-medium whitespace-nowrap\">{summary}</p>\n      <div className=\"flex items-center gap-3\">{children}</div>\n    </div>\n  );\n}\n"
+      "content": "import { ReactNode } from 'react';\n\ninterface BravosWizardFooterProps {\n  /** Left-aligned progress summary, e.g. \"v4 · 5 seções · 18 campos\". */\n  summary: string;\n  /** Action buttons, right-aligned — compose with BravosButton (e.g. back + next). */\n  children: ReactNode;\n}\n\n/** Bottom navigation bar for multi-step forms — progress summary on the left, composed actions on the right. */\nexport function BravosWizardFooter({ summary, children }: BravosWizardFooterProps) {\n  return (\n    <div className=\"bg-cb-surface border-t border-cb-border flex flex-wrap items-center justify-between gap-4 px-4 md:px-8 py-4 font-cb-body\">\n      <p className=\"text-cb-fg-3 text-[13px] font-cb-caption font-medium whitespace-nowrap\">{summary}</p>\n      <div className=\"flex items-center gap-3\">{children}</div>\n    </div>\n  );\n}\n"
     }
   ]
 }

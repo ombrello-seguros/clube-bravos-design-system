@@ -17,6 +17,19 @@
       ]
     },
     {
+      "name": "clube-bravos-soft-bento",
+      "type": "registry:theme",
+      "title": "Clube Bravos Soft Bento tokens",
+      "description": "Tokens cb-* (cores, raios, sombras, fontes, utilities) usados pelos componentes Bravos — instale uma vez e importe no CSS do app depois do theme.tokens.css.",
+      "files": [
+        {
+          "path": "src/styles/soft-bento.css",
+          "type": "registry:file",
+          "target": "src/styles/soft-bento.css"
+        }
+      ]
+    },
+    {
       "name": "bravos-button",
       "type": "registry:component",
       "title": "BravosButton",
@@ -24,7 +37,8 @@
         "clsx"
       ],
       "registryDependencies": [
-        "clube-bravos-theme"
+        "clube-bravos-theme",
+        "clube-bravos-soft-bento"
       ],
       "files": [
         {
@@ -73,7 +87,8 @@
       "title": "BravosWizardFooter",
       "registryDependencies": [
         "bravos-button",
-        "clube-bravos-theme"
+        "clube-bravos-theme",
+        "clube-bravos-soft-bento"
       ],
       "files": [
         {
@@ -103,7 +118,8 @@
         "clsx"
       ],
       "registryDependencies": [
-        "clube-bravos-theme"
+        "clube-bravos-theme",
+        "clube-bravos-soft-bento"
       ],
       "files": [
         {
@@ -138,7 +154,8 @@
         "clsx"
       ],
       "registryDependencies": [
-        "clube-bravos-theme"
+        "clube-bravos-theme",
+        "clube-bravos-soft-bento"
       ],
       "files": [
         {
@@ -168,7 +185,8 @@
         "clsx"
       ],
       "registryDependencies": [
-        "clube-bravos-theme"
+        "clube-bravos-theme",
+        "clube-bravos-soft-bento"
       ],
       "files": [
         {

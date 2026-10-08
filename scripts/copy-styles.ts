@@ -23,6 +23,7 @@ if (!existsSync(assetsDir)) {
 const cssFiles = [
   { src: 'src/styles/theme.css', dest: 'styles/theme.css' },
   { src: 'src/styles/theme.tokens.css', dest: 'styles/theme.tokens.css' },
+  { src: 'src/styles/soft-bento.css', dest: 'styles/soft-bento.css' },
   { src: 'src/styles/fonts.css', dest: 'styles/fonts.css' },
 ];
 
